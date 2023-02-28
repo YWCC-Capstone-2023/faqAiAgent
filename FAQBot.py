@@ -1,38 +1,53 @@
 import discord
+import gspread
+
 from discord.ext import commands
+from oauth2client.service_account import ServiceAccountCredentials
 
 import json
 import os
 
-if os.path.exists(os.getcwd() + "/config.json"):
-    with open("./config.json") as f:
-        configData = json.load(f)
+"""google sheet credential setup"""
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
 
-else:
-    configTemplate = {"Token": "", "Prefix": "!"}
+creds = ServiceAccountCredentials.from_json_keyfile_name(
+    'service_account_credentials.json', scope)
 
-    with open(os.getcwd() + "/config.json", "w+") as f:
-        json.dump(configTemplate, f) 
+client = gspread.authorize(credentials = creds)
+faq_sheet = client.open(title='intents').sheet1
 
-token = configData["Token"]
-prefix = configData["Prefix"]
+print(faq_sheet)
+
+# if os.path.exists(os.getcwd() + "/config.json"):
+#     with open("./config.json") as f:
+#         configData = json.load(f)
+
+# else:
+#     configTemplate = {"Token": "", "Prefix": "!"}
+
+#     with open(os.getcwd() + "/config.json", "w+") as f:
+#         json.dump(configTemplate, f) 
+
+# token = configData["Token"]
+# prefix = configData["Prefix"]
 
  
-intents = discord.Intents.all()
-client = discord.Client(command_prefix='!', intents=intents)
-print("here")
+# intents = discord.Intents.all()
+# client = discord.Client(command_prefix='!', intents=intents)
+# print("here")
 
 
-@client.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+# @client.event
+# async def on_ready():
+#     print('We have logged in as {0.user}'.format(client))
  
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+# @client.event
+# async def on_message(message):
+#     if message.author == client.user:
+#         return
  
-    if message.content.startswith('!'):
-        await message.channel.send('Message Read!')
+#     if message.content.startswith('!'):
+#         await message.channel.send('Message Read!')
  
-client.run(token)
+# client.run(token)
