@@ -15,9 +15,15 @@ creds = ServiceAccountCredentials.from_json_keyfile_name(
     'service_account_credentials.json', scope)
 
 client = gspread.authorize(credentials = creds)
-faq_sheet = client.open(title='intents').sheet1
+faq_sheet = client.open(title='FindMe')
+sheet_instance = faq_sheet.get_worksheet(0)
 
-print(faq_sheet)
+questions = sheet_instance.col_values(1)
+answers = sheet_instance.col_values(3)
+print(faq_sheet, "\n")
+print(questions, "\n")
+print(answers, "\n")
+
 
 # if os.path.exists(os.getcwd() + "/config.json"):
 #     with open("./config.json") as f:
