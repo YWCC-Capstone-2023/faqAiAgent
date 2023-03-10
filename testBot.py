@@ -20,7 +20,7 @@ prefix = configData["Prefix"]
 intents = discord.Intents.all()
 intents.message_content = True
 client = discord.Client(command_prefix='!', intents=intents)
-bot = commands.Bot(command_prefix='$', intents=intents)
+bot = commands.Bot(command_prefix='!', intents=intents)
 
 print("here")
 
