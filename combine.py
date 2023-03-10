@@ -7,7 +7,7 @@ from gspread_dataframe import get_as_dataframe, set_with_dataframe
 import json
 import os
 import pandas as pd
-
+from thefuzz import process, fuzz
 
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
@@ -63,5 +63,20 @@ async def list(ctx):
         return
     await ctx.send(df.iloc[3][0]) #iloc[row][col]
 
+@bot.command()
+async def ask(ctx, *, content:str):
+    if ctx.author == bot.user:
+        return
+    message = content
+
+    ans = process.extractOne(message, df["Questions"],scorer=fuzz.token_set_ratio)[2]
+
+    await ctx.send(df.iloc[ans][2])
+    
+
+# 1. get all the questions from the sheet 
+# 2. compare message using fuzz to all the questions 
+#     - print probability (for now)
+#     - return the revised answer that matches the question with the highest probability
 
 bot.run(token)
