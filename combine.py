@@ -70,6 +70,6 @@ async def ask(ctx, *, content:str):
     ans = process.extractOne(message, df["Questions"],scorer=fuzz.token_set_ratio)[2] #get the answer for the question that it most closley resembles
 
     #await ctx.send(df.iloc[ans][2])
-    await ctx.send(f'Hi {ctx.message.author.mention}! {df.iloc[ans][2]}')
+    await ctx.reply(f'Hi {ctx.message.author.mention}! {df.iloc[ans][2]}')
 
 bot.run(token)
