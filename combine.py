@@ -49,8 +49,6 @@ intents = discord.Intents.all()
 intents.message_content = True
 client = discord.Client(command_prefix='!', intents=intents)
 bot = commands.Bot(command_prefix='!', intents=intents)
-bot = commands.Bot(command_prefix='$', intents=intents)
-bot = commands.Bot(command_prefix='!', intents=intents)
 
 
 @bot.event
@@ -69,14 +67,9 @@ async def ask(ctx, *, content:str):
         return
     message = content
 
-    ans = process.extractOne(message, df["Questions"],scorer=fuzz.token_set_ratio)[2]
+    ans = process.extractOne(message, df["Questions"],scorer=fuzz.token_set_ratio)[2] #get the answer for the question that it most closley resembles
 
-    await ctx.send(df.iloc[ans][2])
-    
-
-# 1. get all the questions from the sheet 
-# 2. compare message using fuzz to all the questions 
-#     - print probability (for now)
-#     - return the revised answer that matches the question with the highest probability
+    #await ctx.send(df.iloc[ans][2])
+    await ctx.send(f'Hi {ctx.message.author.mention}! {df.iloc[ans][2]}')
 
 bot.run(token)
