@@ -24,7 +24,7 @@ worksheet = mainSheet.worksheet('Questions')
 
 pd.set_option('display.max_colwidth',1000)
 
-df = pd.read_csv("data.csv")
+df = pd.read_csv("https://docs.google.com/spreadsheets/d/1m51HUH0AQi28EBnsLwP9gasUHPuLVzFuNu1L4N6Zs-Y/gviz/tq?tqx=out:csv&sheet=Question+and+Answers_new")
 # print(df.iloc[3][0])
 
 #df_read = get_as_dataframe(worksheet, usecols=[0], nrows=10, header=0, skiprows=None)
@@ -67,9 +67,13 @@ async def ask(ctx, *, content:str):
         return
     message = content
 
-    ans = process.extractOne(message, df["Questions"],scorer=fuzz.token_set_ratio)[2] #get the answer for the question that it most closley resembles
-
+    ans = process.extractOne(message, df["Questions"],scorer=fuzz.token_set_ratio) #get the answer for the question that it most closley resembles
+    print(ans[1])
     #await ctx.send(df.iloc[ans][2])
-    await ctx.reply(f'Hi {ctx.message.author.mention}! {df.iloc[ans][2]}')
+    if ans[1] < 75:
+        await ctx.reply(f'Hi {ctx.message.author.mention}! We could not find this question in our Database. Please @ the professor.')
+        return
+    else:
+        await ctx.reply(f'Hi {ctx.message.author.mention}! {df.iloc[ans[2]][1]}')
 
 bot.run(token)
