@@ -1,13 +1,11 @@
+import json, os, pandas as pd
+
 import discord
-import gspread
-import pandas as pd
 from discord.ext import commands
 from oauth2client.service_account import ServiceAccountCredentials
-from gspread_dataframe import get_as_dataframe, set_with_dataframe
-import json
-import os
-import pandas as pd
+
 from thefuzz import process, fuzz
+from difflib import SequenceMatcher
 
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
@@ -15,22 +13,8 @@ scope = ['https://spreadsheets.google.com/feeds',
 creds = ServiceAccountCredentials.from_json_keyfile_name(
     'service_account_credentials.json', scope)
 
-client = gspread.authorize(credentials = creds)
-
-
-mainSheet = client.open_by_url('https://docs.google.com/spreadsheets/d/1m51HUH0AQi28EBnsLwP9gasUHPuLVzFuNu1L4N6Zs-Y/edit#gid=2019565985')
-
-worksheet = mainSheet.worksheet('Questions')
-
-pd.set_option('display.max_colwidth',1000)
-
 df = pd.read_csv("https://docs.google.com/spreadsheets/d/1m51HUH0AQi28EBnsLwP9gasUHPuLVzFuNu1L4N6Zs-Y/gviz/tq?tqx=out:csv&sheet=Question+and+Answers_new")
-# print(df.iloc[3][0])
 
-#df_read = get_as_dataframe(worksheet, usecols=[0], nrows=10, header=0, skiprows=None)
-
-
-#print(df_read.iloc[0])
 if os.path.exists(os.getcwd() + "/config.json"):
     with open("./config.json") as f:
         configData = json.load(f)
@@ -50,6 +34,29 @@ intents.message_content = True
 client = discord.Client(command_prefix='!', intents=intents)
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+questions = df["Questions"]
+
+def trim_all_columns(df:pd.Series):
+    trim_strings = lambda s: s.split(';')[0] if ';' in s and isinstance (s,str) else s
+    return df.apply(trim_strings)
+
+
+def measure_accuracy(fuzz_ratio:int, seq_match:float) -> bool:
+    seq_match *= 100 
+    distance_thresh = 15
+    acc_thresh = 70
+
+    if fuzz_ratio < acc_thresh or seq_match < acc_thresh / 100:
+        return False
+    
+    distance = abs(fuzz_ratio - round(seq_match))
+
+    if distance > distance_thresh:
+        return False
+
+    return True
+
+questions = trim_all_columns(questions)
 
 @bot.event
 async def on_ready():
@@ -65,15 +72,33 @@ async def list(ctx):
 async def ask(ctx, *, content:str):
     if ctx.author == bot.user:
         return
+    
     message = content
 
-    ans = process.extractOne(message, df["Questions"],scorer=fuzz.token_set_ratio) #get the answer for the question that it most closley resembles
-    print(ans[1])
-    #await ctx.send(df.iloc[ans][2])
-    if ans[1] < 75:
-        await ctx.reply(f'Hi {ctx.message.author.mention}! We could not find this question in our Database. Please @ the professor.')
-        return
+    # print(message)
+    ans = process.extractOne(message, questions ,scorer=fuzz.token_set_ratio) #get the answer for the question that it most closley resembles
+    # print(f"{ans}\n")
+
+    response = df.iloc[ans[2]][1]
+
+    # print(f"Question: {ans[0]}\n")
+
+    # print(f"Sequence Match: {SequenceMatcher(None, message, ans[0]).ratio()}")
+    # print(f"Fuzz accuracy: {ans[1]}")
+
+    # print(f"Response: {response}\n")
+    fuzz_ratio = ans[1]
+    seq_match = SequenceMatcher(None, message, ans[0]).ratio()
+
+    if measure_accuracy(fuzz_ratio, seq_match):
+        await ctx.reply(f'Hi {ctx.message.author.mention}! {response}')
     else:
-        await ctx.reply(f'Hi {ctx.message.author.mention}! {df.iloc[ans[2]][1]}')
+        await ctx.reply(f'Hi {ctx.message.author.mention}! We could not find this question in our Database. Please @ the professor.')
 
 bot.run(token)
+
+# 03/24/23
+#ask the group about how to deal with questions not in the database? 
+# 1. create bot command to enter question into the database? 
+#      - implement slash permissions for add_to_db command
+#decide on comparison method to go with for midterm showcase
