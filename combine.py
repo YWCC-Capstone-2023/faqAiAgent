@@ -3,7 +3,7 @@ import pygsheets
 import discord
 from discord.ext import commands
 from oauth2client.service_account import ServiceAccountCredentials
-
+import asyncio
 from thefuzz import process, fuzz
 from difflib import SequenceMatcher
 
@@ -14,6 +14,8 @@ creds = ServiceAccountCredentials.from_json_keyfile_name(
     'service_account_credentials.json', scope)
 
 df = pd.read_csv("https://docs.google.com/spreadsheets/d/1m51HUH0AQi28EBnsLwP9gasUHPuLVzFuNu1L4N6Zs-Y/gviz/tq?tqx=out:csv&sheet=Question+and+Answers_new")
+
+df1 = pd.read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTEeagPjMdSxmySlZ-_DmFktpi_ynHE8USFhDygazEScxnQWCIupFZ1z1ygfc5w29_g7sGa0FIFy1TK/pub?gid=0&single=true&output=csv")
 
 gc = pygsheets.authorize(service_file='service_account_credentials.json')
 
@@ -37,15 +39,15 @@ client = discord.Client(command_prefix='!', intents=intents)
 bot = commands.Bot(command_prefix='/', intents=intents, case_insensitive = True)
 
 questions = df["Questions"]
-def add():
-    # if changes update df
-    sh = gc.open('TestingAdd')
-    print(f"Opened sheet {sh}")
-    # select wksht
-    # append data 
-    
 
-add()
+
+def addMe(q,a):
+    # if changes update df
+    sh = gc.open('Question and Answers_new')
+    print(f"Opened sheet {sh}")
+    worksheet1 = sh[0]
+    worksheet1.append_table([q,a], start='A104') #list should be question and answer
+
 def trim_all_columns(df:pd.Series):
     trim_strings = lambda s: s.split(';')[0] if ';' in s and isinstance (s,str) else s
     return df.apply(trim_strings)
@@ -69,44 +71,60 @@ def measure_accuracy(fuzz_ratio:int, seq_match:float) -> bool:
 
 questions = trim_all_columns(questions)
 
-# @bot.event
-# async def on_ready():
-#     print('We have logged in as {0.user}'.format(bot))
+@bot.event
+async def on_ready():
+    print('We have logged in as {0.user}'.format(bot))
 
-# @bot.command()
-# async def list(ctx):
-#     if ctx.author == bot.user:
-#         return
-#     await ctx.send(df.iloc[3][0]) #iloc[row][col]
+@bot.command()
+async def list(ctx):
+    if ctx.author == bot.user:
+        return
+    await ctx.send(df.iloc[3][0]) #iloc[row][col]
 
-# @bot.command()
-# async def ask(ctx, *, content:str):
-#     if ctx.author == bot.user:
-#         return
+@bot.command()
+async def ask(ctx, *, content:str):
+    if ctx.author == bot.user:
+        return
     
-#     message = content
+    message = content
 
-#     # print(message)
-#     ans = process.extractOne(message, questions ,scorer=fuzz.token_set_ratio) #get the answer for the question that it most closley resembles
-#     # print(f"{ans}\n")
+    # print(message)
+    ans = process.extractOne(message, questions ,scorer=fuzz.token_set_ratio) #get the answer for the question that it most closley resembles
+    # print(f"{ans}\n")
 
-#     response = df.iloc[ans[2]][1]
+    response = df.iloc[ans[2]][1]
 
-#     # print(f"Question: {ans[0]}\n")
+    # print(f"Question: {ans[0]}\n")
 
-#     print(f"Sequence Match: {SequenceMatcher(None, message, ans[0]).ratio()}")
-#     print(f"Fuzz accuracy: {ans[1]}")
+    print(f"Sequence Match: {SequenceMatcher(None, message, ans[0]).ratio()}")
+    print(f"Fuzz accuracy: {ans[1]}")
 
-#     # print(f"Response: {response}\n")
-#     fuzz_ratio = ans[1]
-#     seq_match = SequenceMatcher(None, message, ans[0]).ratio()
+    # print(f"Response: {response}\n")
+    fuzz_ratio = ans[1]
+    seq_match = SequenceMatcher(None, message, ans[0]).ratio()
 
-#     if measure_accuracy(fuzz_ratio, seq_match):
-#         await ctx.reply(f'Hi {ctx.message.author.mention}! {response}')
-#     else:
-#         await ctx.reply(f'Hi {ctx.message.author.mention}! We could not find this question in our Database. Please @ the professor.')
+    if measure_accuracy(fuzz_ratio, seq_match):
+        await ctx.reply(f'Hi {ctx.message.author.mention}! {response}')
+    else:
+        await ctx.reply(f'Hi {ctx.message.author.mention}! We could not find this question in our Database. Please @ the professor.')
 
-# bot.run(token)
+@bot.command()
+async def add(ctx, *, content:str):
+    if ctx.author == bot.user:
+        return
+   
+    a = content.find("?")
+
+    user_question = content[:a+1]
+    user_answer = content[a+1:].strip()
+    
+    print(f"Question: {user_question}\n")
+    print(f"Answer: {user_answer}\n")
+    addMe(user_question,user_answer)
+  
+    await ctx.reply(f'Hi {ctx.message.author.mention}! We have added this question and answer in our Database.')
+
+bot.run(token)
 
 # # 03/24/23
 # #ask the group about how to deal with questions not in the database? 
