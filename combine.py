@@ -59,14 +59,12 @@ def measure_accuracy(fuzz_ratio:int, seq_match:float) -> bool:
     acc_thresh = 70
 
     distance = abs(fuzz_ratio - round(seq_match))
-    print(f"Distance: {distance}")
+    
     if fuzz_ratio < acc_thresh or seq_match < acc_thresh / 100:
         return False
-
     if distance > distance_thresh:
         return False
 
-    
     return True
 
 questions = trim_all_columns(questions)
