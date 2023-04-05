@@ -1,4 +1,4 @@
-/config.json
-/credentials.json
-/.env
-/service_account_credentials.json
+/credentials/config.json
+/credentials/credentials.json
+/credentials/.env
+/credentials/service_account_credentials.json

@@ -10,20 +10,18 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
 creds = ServiceAccountCredentials.from_json_keyfile_name(
-    'service_account_credentials.json', scope)
+    '/credentials/service_account_credentials.json', scope)
 
-df = pd.read_csv("https://docs.google.com/spreadsheets/d/1m51HUH0AQi28EBnsLwP9gasUHPuLVzFuNu1L4N6Zs-Y/gviz/tq?tqx=out:csv&sheet=Question+and+Answers_new")
-
-gc = pygsheets.authorize(service_file='service_account_credentials.json')
+gc = pygsheets.authorize(service_file='/credentials/service_account_credentials.json')
 
 if os.path.exists(os.getcwd() + "/config.json"):
-    with open("./config.json") as f:
+    with open("./credentials/config.json") as f:
         configData = json.load(f)
 
 else:
     configTemplate = {"Token": "", "Prefix": "!"}
 
-    with open(os.getcwd() + "/config.json", "w+") as f:
+    with open(os.getcwd() + "/credentials/config.json", "w+") as f:
         json.dump(configTemplate, f) 
 
 token = configData["Token"]
