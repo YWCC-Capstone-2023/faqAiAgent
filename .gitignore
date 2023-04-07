@@ -2,3 +2,4 @@
 /credentials/credentials.json
 /credentials/.env
 /credentials/service_account_credentials.json
+/discordBot/__pycache__
