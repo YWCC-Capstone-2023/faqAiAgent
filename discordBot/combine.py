@@ -10,18 +10,18 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
 creds = ServiceAccountCredentials.from_json_keyfile_name(
-    '/credentials/service_account_credentials.json', scope)
+    'faqAiAgent\credentials\service_account_credentials.json', scope)
 
-gc = pygsheets.authorize(service_file='/credentials/service_account_credentials.json')
+gc = pygsheets.authorize(service_file='faqAiAgent\credentials\service_account_credentials.json')
 
-if os.path.exists(os.getcwd() + "/config.json"):
-    with open("./credentials/config.json") as f:
+if os.path.exists(os.getcwd() + "\\faqAiAgent\credentials\config.json"):
+    with open("faqAiAgent\credentials\config.json") as f:
         configData = json.load(f)
 
 else:
     configTemplate = {"Token": "", "Prefix": "!"}
 
-    with open(os.getcwd() + "/credentials/config.json", "w+") as f:
+    with open(os.getcwd() + "\\faqAiAgent\credentials\config.json", "w+") as f:
         json.dump(configTemplate, f) 
 
 token = configData["Token"]
@@ -47,36 +47,6 @@ async def on_ready():
 
 @bot.command()
 async def ask(ctx, *, content:str):
-    # df = pd.read_csv("https://docs.google.com/spreadsheets/d/1m51HUH0AQi28EBnsLwP9gasUHPuLVzFuNu1L4N6Zs-Y/gviz/tq?tqx=out:csv&sheet=Question+and+Answers_new")
-    # questions = df["Questions"]
-    # questions = trim_all_columns(questions)
-
-    # if ctx.author == bot.user:
-    #     return
-    
-    # message = content
-
-    # # print(message)
-    # '''get the answer for the question that it most closley resembles'''
-    # ans = process.extractOne(message, questions ,scorer=fuzz.token_set_ratio) 
-    # # print(f"{ans}\n")
-
-    # response = df.iloc[ans[2]][1]
-
-    # print(f"Question: {ans[0]}\n")
-
-    # print(f"Sequence Match: {SequenceMatcher(None, message, ans[0]).ratio()}")
-    # print(f"Fuzz accuracy: {ans[1]}")
-
-    # # print(f"Response: {response}\n")
-    # fuzz_ratio = ans[1]
-    # seq_match = SequenceMatcher(None, message, ans[0]).ratio()
-
-    # if measure_accuracy(fuzz_ratio, seq_match):
-    #     await ctx.reply(f'Hi {ctx.message.author.mention}! {response}')
-    # else:
-    #     await ctx.reply(f'Hi {ctx.message.author.mention}! We could not find this question in our Database. Please @ the professor.')
-
     if ctx.author == bot.user:
         return
     
