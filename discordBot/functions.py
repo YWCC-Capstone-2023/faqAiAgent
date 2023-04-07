@@ -21,30 +21,36 @@ def convert_col_to_list(df:pd.DataFrame, col_name:str, new_col_name:str = "") ->
     return df
 
 def load_spreadsheet_as_intents(df:pd.DataFrame, new_filename:str = "intents.json") -> None:
-  """
+    """
     Writes to a file a DataFrame as a json object
 
     Args:
         df (pandas.DataFrame) : The dataframe to be written to the file
         new_filename (str) : The name of the file, Default = intents.json
-  """
-  df = convert_col_to_list(df, "patterns")
-  df = convert_col_to_list(df, "responses")
+    """
+    df = convert_col_to_list(df, "patterns")
+    df = convert_col_to_list(df, "responses")
 
-  res_df = pd.DataFrame().assign(tag = df["Topic"], patterns = df['patterns'], responses = df['responses'], context_set = "")
-  
-  json_df = res_df.to_json(orient = "table", index = False)
+    res_df = pd.DataFrame().assign(tag = df["tag"], patterns = df['patterns'], responses = df['responses'], context_set = "")
 
-  parsed_df = json.loads(json_df)
+    json_df = res_df.to_json(orient = "table", index = False)
 
-  json_obj = json.dumps(parsed_df, indent = 4)
+    parsed_df = json.loads(json_df)
 
-  intents = json_obj["data"]
+    json_obj = json.dumps(parsed_df, indent = 4)
 
-  res = {"intents" : intents}
+    with open("intents.json", 'w') as f:
+        f.write(json_obj)
 
-  with open(new_filename, 'w') as f:
-    f.write(json.dumps(res))
+    with open("intents.json", 'r') as f:
+        obj = json.load(f)
+
+    intents = obj['data']
+
+    res = {"intents" : intents}
+
+    with open(new_filename, 'w') as f:
+        f.write(json.dumps(res, indent=4))
 
 
 def get_intents(url:str, new_filename:str = "intents.json") -> None:
@@ -59,3 +65,8 @@ def get_intents(url:str, new_filename:str = "intents.json") -> None:
    df = pd.read_csv(url)
 
    load_spreadsheet_as_intents(df, new_filename=new_filename)
+
+if __name__ == "__main__":
+   SPREADSHEET = "https://docs.google.com/spreadsheets/d/1m51HUH0AQi28EBnsLwP9gasUHPuLVzFuNu1L4N6Zs-Y/gviz/tq?tqx=out:csv&sheet=Question+and+Answers_new"
+
+   get_intents(url= SPREADSHEET)
