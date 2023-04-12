@@ -1,6 +1,5 @@
-import os,time
+import os
 
-import gspread
 from neuralintents import GenericAssistant
 
 from functions import get_intents

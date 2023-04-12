@@ -66,10 +66,6 @@ def get_intents(url:str, new_filename:str = "intents.json") -> None:
 
    load_spreadsheet_as_intents(df, new_filename=new_filename)
 
-def get_creds(path_to_credentials:str):
-    pass
-
-
 
 if __name__ == "__main__":
    SPREADSHEET = "https://docs.google.com/spreadsheets/d/1m51HUH0AQi28EBnsLwP9gasUHPuLVzFuNu1L4N6Zs-Y/gviz/tq?tqx=out:csv&sheet=Question+and+Answers_new"
