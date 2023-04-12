@@ -55,7 +55,7 @@ def load_spreadsheet_as_intents(df:pd.DataFrame, new_filename:str = "intents.jso
 
 def get_intents(url:str, new_filename:str = "intents.json") -> None:
    """
-    Will generate new intents file
+    Will generate new intents file from specified spreadsheet url
 
     Args:
         url (str): url containing the spreadsheet to load
@@ -65,6 +65,11 @@ def get_intents(url:str, new_filename:str = "intents.json") -> None:
    df = pd.read_csv(url)
 
    load_spreadsheet_as_intents(df, new_filename=new_filename)
+
+def get_creds(path_to_credentials:str):
+    pass
+
+
 
 if __name__ == "__main__":
    SPREADSHEET = "https://docs.google.com/spreadsheets/d/1m51HUH0AQi28EBnsLwP9gasUHPuLVzFuNu1L4N6Zs-Y/gviz/tq?tqx=out:csv&sheet=Question+and+Answers_new"

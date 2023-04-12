@@ -4,7 +4,7 @@ import discord
 from discord.ext import commands
 from oauth2client.service_account import ServiceAccountCredentials
 
-from trainBot import agent
+from trainAgent import agent
 
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
@@ -35,11 +35,11 @@ bot = commands.Bot(command_prefix='/', intents=intents, case_insensitive = True)
 
 
 
-def addMe(q,a):
+def addMe(q,a,t='default_tag'):
     sh = gc.open('Question and Answers_new')
     print(f"Opened sheet {sh}")
     worksheet1 = sh[0]
-    worksheet1.append_table([q,a], start='A104') #list should be question and answer
+    worksheet1.append_table([q,a,t], start='A104') #list should be question and answer
 
 @bot.event
 async def on_ready():
