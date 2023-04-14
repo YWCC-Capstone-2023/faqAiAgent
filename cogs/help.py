@@ -5,7 +5,7 @@ from discord.ui import View, Select
 class HelpSelect(Select):
     def __init__(self, bot:commands.Bot):
         super().__init__(
-            placeholder='Choose a category',
+            placeholder='Choose a command',
             options=[
                 discord.SelectOption(
                     label=cog_name,description=cog.__doc__
@@ -18,10 +18,13 @@ class HelpSelect(Select):
     async def callback(self, interaction: discord.Interaction) -> None:
         cog = self.bot.get_cog(self.values[0])
         assert cog
+        commands_mixer = []
+        
+        for i in cog.walk_commands():
+            commands_mixer.append(i)
 
-        commands_mixer = [i for i in cog.walk_commands()]
-
-        commands_mixer.append(i for i in cog.walk_app_commands())
+        for i in cog.walk_app_commands():
+            commands_mixer.append(i)
 
         embed = discord.Embed(
             title=f'{cog.__cog_name__} Commands',
@@ -36,39 +39,20 @@ class HelpSelect(Select):
         )
         return await super().callback(interaction)
 
-class Utils(commands.Cog):
-    """The description for Utils goes here."""
-
+class Help(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        print("Help Loaded\n")
 
-
-
-
-    @commands.hybrid_command(name="help", descripition = "Show a list of commands!")
+    @commands.hybrid_command(name="help", descripition = "Show a list of commands!", guild_ids = [1072948383955816459])
     async def help(self,ctx:commands.Context):
         embed = discord.Embed(
             title="Help Command",
-            description="This is a help command"
+            description="List of Commands!"
         )
         view = View().add_item(HelpSelect(self.bot))
-        await ctx.send(embed=embed, view = view)
-
-    
-
-    # @commands.hybrid_command(name='test', description = "Just a test!")
-    # async def test(self, ctx:commands.Context):
-    #     await ctx.send(10)
-
-    @commands.hybrid_command(name='ask', description='Ask the Bot a question!')
-    async def test(self, ctx:commands.Context):
-        embed = discord.Embed(
-            title="Ask Command",
-            description="Ask the Bot a question!"
-        )
-        view = View().add_item(HelpSelect(self.bot))
-        await ctx.send(embed=embed, view = view)
+        await ctx.send(embed=embed, view = view, ephemeral=True)
 
 
 async def setup(bot):
-    await bot.add_cog(Utils(bot))
+    await bot.add_cog(Help(bot))
