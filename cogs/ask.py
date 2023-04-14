@@ -1,6 +1,4 @@
 import os, json, pandas as pd
-from pathlib import Path
-from platform import system
 
 from discord.ext import commands
 import discord
@@ -36,9 +34,6 @@ class Ask(commands.Cog):
     @commands.hybrid_command(name='ask', description="Ask the bot a question!", guild_ids=[1072948383955816459])
     async def ask(self, interaction: discord.Interaction, question:str) -> None:
         """Ask the Bot a question
-
-        Args:
-            question (str): question user passes to command via discord client
         """
         response = self.agent.request(question)
         await interaction.reply(f"Hi, {interaction.author.mention}! {response}", ephemeral=True)
@@ -107,7 +102,7 @@ class Ask(commands.Cog):
 
         res = {"intents" : intents}
 
-        with open(new_filename, 'w') as f:
+        with open(os.path.join(os.getcwd(), self.PATH_TO_INTENTS, 'intents.json'), 'w') as f:
             f.write(json.dumps(res, indent=4))
 
 
@@ -133,9 +128,9 @@ class Ask(commands.Cog):
         
         """
         
-        self.__get_intents(self.SPREADSHEET, new_filename='/intents/intents.json')
+        self.__get_intents(self.SPREADSHEET)
 
-        self.agent = GenericAssistant('/intents/intents.json', model_name='faqAiAgent')
+        self.agent = GenericAssistant(os.path.join(os.getcwd(), self.PATH_TO_INTENTS, 'intents.json'), model_name='faqAiAgent')
 
         #check if there already exists some presaved model, speed up the bot login
         #implement method to check for last modified date here
