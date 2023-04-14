@@ -1,29 +1,28 @@
 import json, os
 
-import pygsheets
 import discord
 from discord.ext import commands
-from discord import app_commands
 from oauth2client.service_account import ServiceAccountCredentials
 
-scope = ['https://spreadsheets.google.com/feeds',
+SCOPE = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
-creds = ServiceAccountCredentials.from_json_keyfile_name(
-    'credentials/service_account_credentials.json', scope)
-
+if os.path.exists("credentials/service_account_credentials.json"):
+    CREDS = ServiceAccountCredentials.from_json_keyfile_name(
+        'credentials/service_account_credentials.json', SCOPE)
+else:
+    print('service_account_credentials.json missing...aborting...')
+    exit(1)
 
 if os.path.exists("credentials/config.json"):
     with open("credentials/config.json") as f:
         configData = json.load(f)
 else:
-    configTemplate = {"Token": "", "Prefix": "!"}
-
-    with open(os.getcwd() + "credentials/config.json", "w+") as f:
-        json.dump(configTemplate, f) 
-
-token = configData["Token"]
-prefix = configData["Prefix"]
+    print("config.json missing...aboring...")
+    exit(1)
+    
+TOKEN = configData["Token"]
+PREFIX = configData["Prefix"]
 
  
 intents = discord.Intents.all()
@@ -41,8 +40,7 @@ async def unLoad(ctx:commands.Context, cog:commands.Cog):
 
 @bot.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(bot))
-    
+
     for filename in os.listdir('./cogs'):
         if filename.endswith('.py'):
             await bot.load_extension(f'cogs.{filename[:-3]}')
@@ -52,5 +50,7 @@ async def on_ready():
         print(f"Synced {len(synced)} command(s)")
     except Exception as e:
         print(e)
+    
+    print('We have logged in as {0.user}'.format(bot))
 
-bot.run(token)
+bot.run(TOKEN)

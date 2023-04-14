@@ -1,4 +1,6 @@
 import os, json, pandas as pd
+from pathlib import Path
+from platform import system
 
 from discord.ext import commands
 import discord
@@ -7,13 +9,23 @@ from neuralintents import GenericAssistant
 
 class Ask(commands.Cog):
     SPREADSHEET = "https://docs.google.com/spreadsheets/d/1m51HUH0AQi28EBnsLwP9gasUHPuLVzFuNu1L4N6Zs-Y/gviz/tq?tqx=out:csv&sheet=Question+and+Answers_new"
-    PATH_TO_INTENTS = '../intents/intents.json'
-    
+    PATH_TO_INTENTS = ''
+    PATH_TO_MODEL = ''
+
     def __init__(self, bot) -> None:
         self.bot = bot
         print("Ask Loaded\n")
 
         self.__train_agent()
+
+    def path_creator(self):
+        userSystem = system()
+
+        self.PATH_TO_INTENTS = os.getcwd() + "\\intents\\" if userSystem == 'Windows' else os.getcwd() + "/intents/"
+        self.PATH_TO_MODEL = os.getcwd() + "\\trained_model\\" if userSystem == 'Windows' else os.getcwd() + "/trained_model/"
+        
+        print(self.PATH_TO_INTENTS)
+        print(self.PATH_TO_MODEL)
 
     @commands.hybrid_command(name='ask', description="Ask the bot a question!", guild_ids=[1072948383955816459])
     async def ask(self, interaction: discord.Interaction, question:str):
@@ -26,6 +38,8 @@ class Ask(commands.Cog):
         response = self.agent.request(question)
         await interaction.reply(f"Hi, {interaction.author.mention}! {response}", ephemeral=True)
 
+
+
     @ask.error
     async def ask_error(self, ctx:commands.Context, error):
         if isinstance(error, commands.errors.MissingRole):
@@ -33,6 +47,8 @@ class Ask(commands.Cog):
         else:
             await ctx.reply(f"Sorry {ctx.author.mention},I do not understand! Please ping the Professor!", ephemeral=True)
     
+
+
     def __convert_col_to_list(self, df:pd.DataFrame, col_name:str, new_col_name:str = "") -> pd.DataFrame:
         """
         Converts every row of a column in a pandas DataFrame into a list containing
@@ -52,7 +68,10 @@ class Ask(commands.Cog):
         
         return df
     
-    def __load_spreadsheet_as_intents(self,df:pd.DataFrame, new_filename:str = "../intents/intents.json") -> None:
+    
+
+    def __load_spreadsheet_as_intents(self,df:pd.DataFrame, new_filename:str = PATH_TO_INTENTS) -> None:
+        # print(f"Load_Spreadsheet_as_intents Currently in : {os.getcwd()}")
         """
         Writes to a file a DataFrame as a json object
 
@@ -60,6 +79,8 @@ class Ask(commands.Cog):
             df (pandas.DataFrame) : The dataframe to be written to the file
             new_filename (str) : The name of the file, Default = intents.json
         """
+        self.path_creator()
+
         df = self.__convert_col_to_list(df, "patterns")
         df = self.__convert_col_to_list(df, "responses")
 
@@ -71,10 +92,12 @@ class Ask(commands.Cog):
 
         json_obj = json.dumps(parsed_df, indent = 4)
 
-        with open("intents.json", 'w') as f:
+        print(os.path.join(self.PATH_TO_INTENTS,'intents.json'))
+
+        with open(os.path.join(self.PATH_TO_INTENTS,'intents.json'), 'w') as f:
             f.write(json_obj)
 
-        with open("intents.json", 'r') as f:
+        with open(os.path.join(self.PATH_TO_INTENTS,'intents.json'), 'r') as f:
             obj = json.load(f)
 
         intents = obj['data']
@@ -84,7 +107,9 @@ class Ask(commands.Cog):
         with open(new_filename, 'w') as f:
             f.write(json.dumps(res, indent=4))
 
-    def __get_intents(self, url:str, new_filename:str = "intents.json") -> None:
+
+
+    def __get_intents(self, url:str, new_filename:str = 'intents.json') -> None:
         """
             Will generate new intents file from specified spreadsheet url
 
@@ -97,18 +122,22 @@ class Ask(commands.Cog):
 
         self.__load_spreadsheet_as_intents(df, new_filename=new_filename)
 
+
+
     def __train_agent(self):
         #implement method to check for last modified date here
         
         self.__get_intents(self.SPREADSHEET)
 
-        self.agent = GenericAssistant(self.PATH_TO_INTENTS, model_name='faqAiAgent')
-        
-        if os.path.exists(f'../trained_model/{self.agent.model_name}.h5'):
-            self.agent.load_model(model_name=f'../trained_model/{self.agent.model_name}')
+        self.agent = GenericAssistant('intents.json', model_name='faqAiAgent')
+
+        if os.path.exists(os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}.h5')):
+            self.agent.load_model(model_name= os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}'))
         else:
             self.agent.train_model()
-            self.agent.save_model(model_name=f'../trained_model/{self.agent.model_name}')
+            self.agent.save_model(model_name= os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}'))
+
+
 
 async def setup(bot):
     await bot.add_cog(Ask(bot))

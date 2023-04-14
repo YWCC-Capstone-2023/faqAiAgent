@@ -1,7 +1,9 @@
+import os
+
 from discord.ext import commands
 import discord
+
 import pygsheets
-import os
 
 class AddModal(discord.ui.Modal, title = "Add a Question and Answer"):
     question = discord.ui.TextInput(
@@ -25,6 +27,8 @@ class AddModal(discord.ui.Modal, title = "Add a Question and Answer"):
         default="default_tag"
     )
     
+
+
     async def on_submit(self, interaction: discord.Interaction, /) -> None:
         q = self.question
         a = self.answer
@@ -33,6 +37,8 @@ class AddModal(discord.ui.Modal, title = "Add a Question and Answer"):
         addMe(q=q, a=a, t=t)
         await interaction.response.send_message(f"{interaction.user.mention} Thank You! This set has been added to the sheet!")
     
+
+
     async def on_error(self, interaction: discord.Interaction, error: Exception, /) -> None:
         return await super().on_error(interaction, error)
 
@@ -42,14 +48,13 @@ class Add(commands.Cog):
         self.bot = bot
         print("Add Loaded\n")
 
+
+
     @commands.hybrid_command(name="add", description= "Add a question, answer, topic set to the database!",guild_ids=[1072948383955816459])
     @commands.has_any_role(["Professor", "Operations", "Team Member", "Server Admin"])
-    async def add(self,ctx: discord.Interaction, question:str, answer:str, topic:str = "default_tag"):
-        print(f"Question: {question}\n")
-        print(f"Answer: {answer}\n")
-        print(f'Topic: {topic}')
-
+    async def add(self,ctx: discord.Interaction):
         await ctx.response.send_modal(AddModal())
+
 
     @add.error
     async def __add_error(self, ctx:commands.Context, error):
@@ -58,6 +63,8 @@ class Add(commands.Cog):
         else:
             await ctx.reply(f"Sorry {ctx.author.mention},I do not understand! Please ping the Professor!", ephemeral=True)
 
+
+
 def addMe(self,q,a,t='default_tag'):
     if os.path.exists('../credentials/service_account_credentials.json'):
         self.gc = pygsheets.authorize(service_file='../credentials/service_account_credentials.json')
@@ -65,7 +72,8 @@ def addMe(self,q,a,t='default_tag'):
 
     sh = self.gc.open('Question and Answers_new')
     worksheet1 = sh[0]
-    worksheet1.append_table([q,a,t], start='A104') #list should be question and answer
+    worksheet1.append_table([q,a,t], start='A104')
+
 
 
 async def setup(bot):

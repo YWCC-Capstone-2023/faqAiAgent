@@ -1,6 +1,6 @@
 from discord.ext import commands
-import discord
 from discord.ui import View, Select
+import discord
 
 class HelpSelect(Select):
     def __init__(self, bot:commands.Bot):
@@ -50,7 +50,7 @@ class Help(commands.Cog):
             title="Help Command",
             description="List of Commands!"
         )
-        view = View().add_item(HelpSelect(self.bot))
+        view = View(timeout=60).add_item(HelpSelect(self.bot))
         await ctx.send(embed=embed, view = view, ephemeral=True)
 
 async def setup(bot):

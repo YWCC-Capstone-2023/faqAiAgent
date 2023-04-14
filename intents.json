@@ -1,0 +1,1387 @@
+{
+    "intents": [
+        {
+            "tag": "Kahoot Quiz Location",
+            "patterns": [
+                "Where do I find the Kahoot quiz?",
+                " Where is the Kahoot quiz?"
+            ],
+            "responses": [
+                "You can find the link on Canvas ** Link **"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Interview Start Date",
+            "patterns": [
+                "When do interviews start?",
+                "At what time do the interviews begin?",
+                " What is the start time for the interviews?",
+                " When is the interview process scheduled to commence?",
+                " When are the interviews set to begin?"
+            ],
+            "responses": [
+                "Interviews start on <date>"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Open House 5 hours",
+            "patterns": [
+                "Is it required to be at the open house for the full 5 hours?",
+                " Do attendees have to stay for the entire 5-hour duration of the open house?",
+                " Is it mandatory to be present for the complete 5-hour period of the open house?",
+                " Must participants remain for the full 5 hours of the open house?",
+                " Is it necessary to attend the open house for the entire 5-hour time frame?"
+            ],
+            "responses": [
+                "Yes, you are required to attend the open house for the full 5 hours from 1-5pm"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Where to Meet first day of class",
+            "patterns": [
+                "Where are we meeting for the first day of class?",
+                " What is the location for our first day of class meeting?",
+                " Where will our initial class meeting be held?",
+                " At what venue will we gather for the first day of class?",
+                " Could you tell me the meeting place for the first day of our class?"
+            ],
+            "responses": [
+                "Our first class is on <date>. We will be meeting <F2F/Webex> on <zoom link> / <building name, classroom #>"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "when is first face to face class",
+            "patterns": [
+                "When is the first FTF class?",
+                " What is the date and time for the first face-to-face (FTF) class?",
+                " When will the first FTF session take place?",
+                " Could you provide me with the schedule for the initial FTF class?",
+                " At what time and day is the first in-person class scheduled?"
+            ],
+            "responses": [
+                "The first face to face class is on <date>  at <time>"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "When Date Open House",
+            "patterns": [
+                "When is the open house?",
+                " What is the date and time for the open house event?",
+                " When is the scheduled open house session?",
+                " Could you tell me the date and time of the upcoming open house?",
+                " At what time and day is the open house program?"
+            ],
+            "responses": [
+                "The Open House is on <date> at <time> in the <place (atrium/ballroom, etc)>"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Who attends open house",
+            "patterns": [
+                "Who must attend the open house?",
+                " Do I have to attend the entire open house?",
+                " Who doesn't have to attend the open house?",
+                " Do I have to go to the open house as part of the software automation channel?",
+                " Do Software engineering coaches need to attend the open house?"
+            ],
+            "responses": [
+                "All industry, start-up applicants, and enterprise teams must attend the open house unless you were granted approval by the professor. RWC, Cisco, and Software Automation students are not required. However software automation must have a representative to be there."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "first face to face classs consist of",
+            "patterns": [
+                "What will the first FTF class consist of?",
+                " What topics or activities will be covered in the initial face-to-face (FTF) class?",
+                " Could you give me an overview of the content for the first FTF session?",
+                " What is the curriculum for the first in-person class?",
+                " What can we expect to learn during the initial FTF class?"
+            ],
+            "responses": [
+                "There will be an in-class training for the FTF class. Everbody must attend and attendance will be taken"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Attend open house if cisco",
+            "patterns": [
+                "If I pick a Cisco project, do I have to attend open house?",
+                " Is attendance at the open house mandatory for those selecting a Cisco project?",
+                " If I choose a Cisco project, am I required to be present at the open house?",
+                " Could you clarify if attending the open house is necessary for those picking a Cisco project?",
+                " Do I need to go to the open house if I opt for a Cisco project?"
+            ],
+            "responses": [
+                "If you were approved for cisco, you do NOT have to attend the open house"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "When Cisco Exam",
+            "patterns": [
+                "When can we expect to take the Cisco qualifier exam?",
+                " What is the anticipated date for administering the Cisco qualifier exam?",
+                " When is the scheduled date for the Cisco qualifier exam?",
+                " Could you inform me about the expected timeline for taking the Cisco qualifier exam?",
+                " At what time and day will the Cisco qualifier exam be conducted?"
+            ],
+            "responses": [
+                "The Cisco qualifier exam will be available on <date> at <time> on Kahoot."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Score Percentage Kahoot Quiz",
+            "patterns": [
+                "Where can I see the percentage for my Kahoot quiz?",
+                " How can I view the score percentage for my Kahoot quiz?",
+                " Is there a place where I can check the percentage score of my Kahoot quiz?",
+                " Where can I find the percentage result of my Kahoot quiz?",
+                " Could you tell me where to look to see the percentage grade of my Kahoot quiz?"
+            ],
+            "responses": [
+                "Only the profesor can see it"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "number RWC coaches per topic",
+            "patterns": [
+                "How many RWC coaches are allowed per topic?",
+                " What is the maximum number of RWC coaches permitted per topic?",
+                " Is there a limit to the number of RWC coaches that can assist with a single topic?",
+                " Could you inform me about the maximum number of RWC coaches allowed per subject?",
+                " How many RWC coaches are permitted to help with a single topic?"
+            ],
+            "responses": [
+                "There are 2 RWC coaches max allowed per topic"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "RWC coaches work together or seperate",
+            "patterns": [
+                "Do the RWC coaches work together or separately?",
+                " Is the work of RWC coaches collaborative or individual?",
+                " Could you tell me if RWC coaches collaborate or work independently?",
+                " Do RWC coaches operate as a team or as individuals?",
+                " Are RWC coaches expected to work together or work separately?"
+            ],
+            "responses": [
+                "There will be 2 coaches per track/course. Both coaches will work together to teach the track/course."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "RWC International Path",
+            "patterns": [
+                "Is the RWC international path still available?",
+                " Is the international track still an option within the RWC program?",
+                " Could you confirm if the RWC international pathway is still offered?",
+                " Is the RWC program still providing an international path for students?",
+                " Has the RWC international path been discontinued",
+                " or is it still available?"
+            ],
+            "responses": [
+                "RWC International is a design option in the Spring and an execution option in the summer. In the Spring, we will build on eight years of success stories and create a website for future coaches, leaders, students, parents, industry, and community. If you travel in June, you can also do the program in Colombia.  Otherwise, these will be two separate capstone projects.  Clearly, the summer semester will include the traveling component.\nAnd again, it will be done in August"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "RWC interviews start date",
+            "patterns": [
+                "When do RWC interviews begin?",
+                " What is the starting date for RWC interview sessions?",
+                " When are the RWC interviews scheduled to commence?",
+                " Could you tell me the date when RWC interviews are planned to begin?",
+                " At what time and day will the RWC interviews start?"
+            ],
+            "responses": [
+                "RWC interviews will begin on <date> at <time>."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Switching Tracks",
+            "patterns": [
+                "If I want to switch tracks, do I fill out the form again?",
+                " Do I need to submit another form if I decide to change RWC tracks?",
+                " If I want to switch RWC tracks, is it necessary to fill out the form again?",
+                " Could you clarify whether I need to complete a new form if I opt to change RWC tracks?",
+                " Is it required to fill out a fresh form if I decide to switch RWC tracks?"
+            ],
+            "responses": [
+                "If you would like to switch tracks, make sure you're logged into the account you filled out the form in and then switch to the track you would to switch to. Then press save and return. You may only switch tracks before the deadline"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Retake Kahoot Quiz",
+            "patterns": [
+                "Can I retake the Kahoot?",
+                " Is it possible to redo the Kahoot quiz?",
+                " Can I take the Kahoot quiz again?",
+                " Could you tell me if there is an option to retake the Kahoot?",
+                " Am I permitted to retake the Kahoot quiz if I wish to do so?"
+            ],
+            "responses": [
+                "Yes, you may retake the Kahoot quiz as many times as needed"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "RWC track second option",
+            "patterns": [
+                "If I don't get (Cisco, RWC, Social media team) can I choose something else as a second option?",
+                " If my first choice of (Cisco, RWC, Social media team) is unavailable",
+                " can I select a different option as my second choice?",
+                " Could you clarify if I can choose a backup option if I am not selected for (Cisco, RWC, Social media team)?",
+                " Is it possible to opt for a different choice if I am not assigned to (Cisco, RWC, Social media team)?",
+                " If I am not chosen for (Cisco, RWC, social media team), can I select a different option as my secondary preference?"
+            ],
+            "responses": [
+                "No, the qualifier will only be for the first choice applicants to CISCO.  We are not working back and forth with potential applicants"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "PM professor on discord",
+            "patterns": [
+                "Are we allowed to PM the professor on Discord?",
+                " Is it permissible to send a direct message to the professor on Discord?",
+                " Could you tell me if messaging the professor directly on Discord is allowed?",
+                " Are we authorized to privately message the professor on Discord?",
+                " Can we send a personal message to the professor on Discord?"
+            ],
+            "responses": [
+                "Yes, it is preferred to PM the professor on discord over email or canvas."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Changing first choice after submitting application",
+            "patterns": [
+                "Can I change my first choice after submitting the application?",
+                " Is it possible to modify my first choice after I have already submitted my application?",
+                " Could you tell me if I can alter my initial selection after submitting the application?",
+                " Is there an option to change my first preference after the application has been submitted?",
+                " Am I permitted to change my first choice after I have completed and submitted the application?"
+            ],
+            "responses": [
+                "Yes you may change your track before the Sunday deadline. There is a grace period until Sunday if you have not made a commitment after an interview"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Co-founder along with founder",
+            "patterns": [
+                "Can we have a co-founder along with the founder to present in open house?",
+                " Is it possible for both the founder and a co-founder to present at the open house?",
+                " Could you clarify if we can have two presenters",
+                " including the founder and a co-founder",
+                " at the open house?",
+                " Are we allowed to have a co-founder join the founder in presenting at the open house?",
+                " Is it permissible to have both the founder and a co-founder present together at the open house?"
+            ],
+            "responses": [
+                "Yes, you may have one co-founder as long as they have found the idea equally and will have the same responsibility and business outcomes"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Discuss startup idea",
+            "patterns": [
+                "Can we discuss startup idea with the mentor before applying to see whether it is approvable or not?",
+                " Is it possible to consult with a mentor about our startup idea before applying to determine its suitability?",
+                " Could you clarify if we can discuss our startup idea with a mentor beforehand to determine if it is acceptable or not?",
+                " Are we allowed to seek guidance from a mentor about our startup concept before submitting an application to ascertain its approval?",
+                " Is it permissible to discuss our startup proposal with a mentor prior to applying to see if it is acceptable or no"
+            ],
+            "responses": [
+                "The only way to get your project proposal reviewed is by proposing it."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Team ready before open house present",
+            "patterns": [
+                "If our entire team is ready before open house, do we still present?",
+                " Is it necessary for our team to present at the open house even if we are fully prepared beforehand?",
+                " Could you clarify if presenting at the open house is mandatory even if our team is ready before the event?",
+                " Are we required to present at the open house regardless of whether our team is fully prepared beforehand?",
+                " Do we need to present at the open house even if our team is completely prepared before the event?"
+            ],
+            "responses": [
+                "You must present during the open house. You cannot present earlier"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Webex meeting time",
+            "patterns": [
+                "How long is the first webex meeting?",
+                " Could you tell me the duration of the first webex meeting?",
+                " How much time is allotted for the initial webex meeting?",
+                " What is the length of the first webex session?",
+                " Is there a specific time frame for the first webex meeting?"
+            ],
+            "responses": [
+                "The first webex meeting will be approximately 2 hours"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Startup member switching to industry project",
+            "patterns": [
+                "If we apply for startup as a member/founder can we switch to industry project during open house?",
+                " Is it possible to switch from a startup project to an industry project during the open house if we applied as a founder or team member?",
+                " Could you clarify if we are allowed to change our project preference from startup to industry during the open house if we initially applied as a founder or team member?",
+                " Are we permitted to switch from a startup project to an industry project during the open house if we applied as a founder or team member?",
+                " Is it permissible to change our project preference from startup to industry during the open house if we initially applied as a founder or team member?"
+            ],
+            "responses": [
+                "If you are the founder of a startup you CANNOT switch to an industry project during the open house. Otherwise, at the open house you may apply to both startup and industry projects"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Student verification on Discord",
+            "patterns": [
+                "How do I get verified on the student discord?",
+                " What is the process for becoming verified on the student discord?",
+                " Could you explain the steps involved in getting verified on the student discord?",
+                " How can I obtain verification on the student discord?",
+                " Is there a way to become verified on the student discord and if so",
+                " what are the steps?"
+            ],
+            "responses": [
+                "TBD (Another team is working on an automation bot for this purpose)"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Student verification on Discord",
+            "patterns": [
+                "How do I know if Im verified?",
+                " What are the indications that my verification on the student discord is complete?",
+                " How can I check if my verification on the student discord has been successful?",
+                " What signs should I look for to confirm that I am verified on the student discord?",
+                " Is there a way to verify if my verification on the student discord has been approved?"
+            ],
+            "responses": [
+                "You will know if you are verified if you have the \"Student\" role on discord. Your name will appear colored"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Kahoot error message",
+            "patterns": [
+                "I am trying to take the kahoot but I get an error message \"Uh-oh this game has alrady reached the max number of players. Ask the host to increase the limit\""
+            ],
+            "responses": [
+                "Contact the professor on discord about this issue"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Kahoot name is too long",
+            "patterns": [
+                "What do we put if our Kahoot name is too long?",
+                " If our Kahoot name is too long, what should we do?",
+                " What is the recommended solution if our Kahoot name exceeds the character limit?",
+                " Can you provide guidance on what to do if our Kahoot name is too long to fit in the allotted space?",
+                " In the event that our Kahoot name is too long",
+                " what is the appropriate course of action?"
+            ],
+            "responses": [
+                "Try to fit as much as your First and Last name as possible"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Student startup game idea",
+            "patterns": [
+                "Can a student startup proposal be for a protoype for a game?",
+                " Is it acceptable for a student startup proposal to be for a game prototype?",
+                " Would a student be allowed to propose a game prototype for their startup idea?",
+                " Can a student's startup proposal involve a prototype for a game?",
+                " Are game prototypes eligible for student startup proposals?"
+            ],
+            "responses": [
+                "Yes, student startup proposals may consist of game design and development. Make sure to propose the idea in full so we can review it and give feedback"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Cisco exam link distibution ",
+            "patterns": [
+                "To receive the link for the Cisco qualifier exam do we have to submit an application beforehand or will we receive an announcement regardless?",
+                " Do we need to submit an application before receiving the link to the Cisco qualifier exam or will we receive an announcement regardless?",
+                " Will we receive the link to the Cisco qualifier exam automatically, or do we need to submit an application first?",
+                " Is it necessary to apply for the Cisco qualifier exam in order to receive the link, or will it be announced to everyone?",
+                " If we don't submit an application for the Cisco qualifier exam, will we still receive the link",
+                " or do we need to apply in order to get it?"
+            ],
+            "responses": [
+                "TBD By Professor"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Maximum number of applications student can fill ut",
+            "patterns": [
+                "How many applications can I fill out?",
+                " What is the maximum number of applications that I can submit?",
+                " Is there a limit to how many applications I can fill out?",
+                " Are there any restrictions on the number of applications I can submit?",
+                " Can I submit multiple applications for different programs?"
+            ],
+            "responses": [
+                "You may only fill out ONE application. PM the professor if you filled out more than one so he can delete it"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Cisco exam re-takes",
+            "patterns": [
+                "How many times can I take the Cisco test?",
+                " What is the limit on the number of times I can take the Cisco test?",
+                " Is there a maximum number of times I can retake the Cisco test?",
+                " Can I retake the Cisco test multiple times?",
+                "  What is the policy on retaking the Cisco test?"
+            ],
+            "responses": [
+                "You may only take the CISCO exam once! It is not an open book/notes exam"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Cisco exam location",
+            "patterns": [
+                "Where do we take the Cisco test?",
+                " Where can the Cisco test be taken?",
+                " What is the location for the Cisco test?",
+                " At what venue is the Cisco test administered?",
+                " Is the Cisco test held at a specific location?"
+            ],
+            "responses": [
+                "TBD By Professor"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Cisco qualifier required score",
+            "patterns": [
+                "What scores are needed to qualify for Cisco?",
+                " What are the required scores to qualify for Cisco?",
+                " What scores do we need to pass the Cisco qualifier?",
+                " What is the minimum score required to be eligible for Cisco?",
+                " What score do we need to achieve in order to qualify for Cisco?"
+            ],
+            "responses": [
+                "Usually below 50% is not acceptable but it can go lower or higher depending on the average"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Cisco qualifier grade",
+            "patterns": [
+                "Is the Cisco qualifier a part of my grade?",
+                " Will the Cisco qualifier affect my grade?",
+                " Does the Cisco qualifier count towards my grade?",
+                " Is the Cisco qualifier graded?",
+                " Will the Cisco qualifier impact my final grade?"
+            ],
+            "responses": [
+                "No, the CISCO qualifier is not a part of your grade. It will allow us to determine your approval of the CISCO capstone option and role you will play (Member, PM, or Coach)"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Kahoot cisco exam placement ",
+            "patterns": [
+                "Are we able to see the total placement not just the top 5 on Cisco?",
+                " Can we view the complete ranking instead of just the top 5 on Cisco?",
+                " Is it possible to check the overall placement and not only the top 5 on Cisco?",
+                " Are we permitted to see the entire placement and not just the highest 5 on Cisco?",
+                " Is there an option to view the complete ranking on Cisco, not just the top 5?"
+            ],
+            "responses": [
+                "I can share that priavetely but will only share the top 10-15 publicly"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Application consideration for another position after rejection",
+            "patterns": [
+                "If I wasn't considered for a capstone enterprise team, would I automatically be considered an applicant for a leadership position?",
+                " Can I be considered for a leadership position if I wasn't selected for a capstone enterprise team?",
+                " Would not being chosen for a capstone enterprise team make me eligible to apply for a leadership position?",
+                " If I didn't make it onto a capstone enterprise team, does that mean I can apply for a leadership position?",
+                " In the event that I wasn't considered for a capstone enterprise team, would I still be able to apply for a leadership position?"
+            ],
+            "responses": [
+                "If you did not get into any enterprise teams, we would assume your interest in a PM position or other enterprise teams (based on availability) unless you tell us NO."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "RWC class size",
+            "patterns": [
+                "What is the typical class size for RWC sessions?",
+                " What is the average number of students in RWC sessions?",
+                " What is the usual size of RWC classes?",
+                " What is the typical number of participants in RWC sessions?",
+                " How many students typically attend RWC classes?"
+            ],
+            "responses": [
+                "The typical class size for RWC sessions are approximately 10 students"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Kahoot score ",
+            "patterns": [
+                "I can't see my kahoot score.",
+                " My kahoot score isn't visible, what could be the reason?",
+                " Why is my kahoot score not showing up?",
+                " Is it possible to access my kahoot score if it's not visible?",
+                " What should I do if my kahoot score isn't displayed?"
+            ],
+            "responses": [
+                "The professor can see the Kahoot scores and will update grades accordingly."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "List of sponsors at open house",
+            "patterns": [
+                "Is there a list of companies that will be at the open house?",
+                " Is there a list of the businesses attending the open house?",
+                " Is a list of the businesses participating in the open house available?",
+                " Does the open house provide a list of the businesses that will be there?",
+                "  Is there a list of the businesses that will be present at the open house?"
+            ],
+            "responses": [
+                "Yes, you can find the link on Cavas"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "NDA location ",
+            "patterns": [
+                "Where is the NDA for industry projects?",
+                " Can you tell me where to find the NDA for industry projects?",
+                " In what location can I locate the NDA for industry projects?",
+                " I'm looking for the NDA for industry projects, where should I search?",
+                " Could you guide me to the location of the NDA for industry projects?"
+            ],
+            "responses": [
+                "You can find the NDA agreement on Canvas"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Email field ",
+            "patterns": [
+                "When filling out the email section, should I put my personal or school email?",
+                " Should I enter my personal email or my school email when filling out the email field?",
+                " Should I enter my personal or work email while completing the email field?",
+                " Should I enter my personal or work email while filling out the email section?",
+                "  Should I include my personal or work email when filling out the email field?"
+            ],
+            "responses": [
+                "You may use your perfeered email of choice."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Cisco academy class information",
+            "patterns": [
+                "Will Cisco academy be online, hybrid",
+                " or F2F?",
+                " Will Cisco Academy be in-person, online, or a hybrid?",
+                " Will Cisco Academy be offered in-person, online, or both?",
+                " Cisco Academy will it be in-person, online, or a hybrid?",
+                "  Is Cisco Academy going to be in-person, online",
+                " or both?"
+            ],
+            "responses": [
+                "The decision for Cisco academy to be online, hybrid, or F2F is ultimately up to the CISCO instructor"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Switching from RWC to industry project",
+            "patterns": [
+                "If I interviewed for rwc and no longer wish to do, can I switch to an industry project?",
+                "  Would it be possible for me to switch from an RWC interview to an industry project if I changed my mind?",
+                "  Can I change my preference from RWC to an industry project after interviewing for RWC?",
+                "  If I'm no longer interested in RWC, is it feasible for me to switch to an industry project?",
+                "  Is it possible to change my project preference from RWC to an industry project after the interview process has begun?"
+            ],
+            "responses": [
+                "You may switch to an industry project from the RWC track if you have not made a commitment and attend the RWC planning meeting."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Project manager selection",
+            "patterns": [
+                "I applied for a PM position and haven't heard anything, does that mean I wasn't selected?",
+                " Is it safe to assume that I wasn't chosen for the PM position if I haven't received any communication yet?",
+                " Should I conclude that I wasn't selected for the PM position if there has been no response to my application?",
+                " Does the absence of communication from the employer indicate that I wasn't chosen for the PM role after applying?",
+                " Can I infer that I wasn't selected for the PM position if I haven't heard back from the employer yet?"
+            ],
+            "responses": [
+                "That does not mean you were not selected. Emails are being sent out whether you got approved or denied."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Project manager sponsor choosing",
+            "patterns": [
+                "If I am chosen as a PM, will you assign me to an industry project or will they go through the process of the open house and submit their resumes to sponsors?",
+                "\nIf I get selected as a PM, will I be assigned to an industry project directly or do I have to participate in the open house and submit my resume to the sponsors?",
+                "\nIn the event that I am chosen as a PM, will I be assigned to an industry project or will I have to follow the open house process and submit my resume to sponsors?",
+                "\nIf I am selected as a PM, will I be directly assigned to an industry project or will I have to participate in the open house process and submit my resume to sponsors?",
+                "\nWill I be automatically assigned to an industry project if I am chosen as a PM, or will I need to participate in the open house process and submit my resume to sponsors?"
+            ],
+            "responses": [
+                "Project managers are not assigned to industries by us. You will have the option to contact sponsors 24 hours before the open house or joining a team at the Open house itself."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Project length ",
+            "patterns": [
+                "Are we working for 2 semesters for some sponsors?",
+                " Will we be working for sponsors for two semesters or just one?",
+                " Is it necessary to work for sponsors for two semesters, or will one be enough?",
+                " Are we expected to work for sponsors for two semesters, or is one semester enough?",
+                " Will we be required to work for sponsors for two semesters or is one semester sufficient?"
+            ],
+            "responses": [
+                "No you will only work for ONE semester for your project.",
+                "\nYou will only be working for a single semester on your project.",
+                "\nYou only need to work for one semester on your project, not two.",
+                "\nYou are only required to work for one semester on your project, not two.",
+                "\nYou only need to work for one semester on your project, not two."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Maximum ammount of places to apply to at Open house",
+            "patterns": [
+                "How many places can I apply to at the open house?",
+                " Is there a limit to the number of places I can apply for during the open house?",
+                " What is the maximum number of places I can apply for at the open house?",
+                " Can I apply for multiple places at the open house",
+                " or is there a limit?",
+                " How many places can I apply to during the open house?"
+            ],
+            "responses": [
+                "You may apply to 3 maximum."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Preparation for the open house",
+            "patterns": [
+                "What should I do to prepare for the openhouse?",
+                "  How can I get ready for the open house?",
+                " What steps should I take to prepare for the open house?",
+                " What are some ways to get myself ready for the open house?",
+                " How should I plan and organize for the upcoming open house?"
+            ],
+            "responses": [
+                "Read the list of sponsors, tighten up your resume\n1- Review the proposals carefully. 2- Review our first class Open House orientation at: https://njit.webex.com/njit/ldr.php?RCID=bdc7f4c2e141876493fe11aaba8d0741 3- Print no more than 3 resumes. 4- Prioritize three top projects in your mind 5- Rehearse your interview with the sponsor with friends or family. 6- Be on time,  dress business casual, and bring additional copies of your resume  6-apply the open house rules, and do not leave the room without  completing the following: A-  a project assignment,  B- a meeting with the team AND sponsor, C- A commitment in the commitment channel, and D- official confirmation photo taken for the team and the sponsor."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Preparation for the open house",
+            "patterns": [
+                "What should I bring to the open house?",
+                " Is there something I should bring to the openhouse?",
+                " What is required for me at the open house?",
+                " What items are recommended to bring to the open house?",
+                " What are the essential things that should be brought to the open house?"
+            ],
+            "responses": [
+                "You should bring at least 3 copies of your resume, and a notepad to take notes on"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Sick before open house or final",
+            "patterns": [
+                "I tested positive for COVID before the open house",
+                " what should I do?",
+                " Can I still attend the open house if I'm sick?",
+                " I'm not feeling well, do I have to go to the open house still?",
+                " What do I do if I can't attend the open house?",
+                " I got a fever",
+                " can I not attend the open house?"
+            ],
+            "responses": [
+                "Contact the professor and provide the operations team with your resume and project interest. If we can not find you a place we will work with you after the open house to match any available vacancies"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Commitment channel location",
+            "patterns": [
+                "Where is the commitment channel?",
+                " Can you tell me where to find the commitment channel?",
+                " In which location can I access the commitment channel?",
+                " Where exactly is the commitment channel located?",
+                " What is the location of the commitment channel?"
+            ],
+            "responses": [
+                "The commitment channel can be found here ** LINK **"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Startup founders assigned table",
+            "patterns": [
+                "Will I have a table as a startup project just like the sponsors?",
+                " Can startup projects expect to receive a table at the open house similar to the sponsors, and how long do they need to present for?",
+                " Are startup projects provided with tables during the open house just like the sponsors, and is there a time limit for their presentation?",
+                " Do startup projects have the same opportunity as sponsors to have tables assigned to them during the open house, and how long do they have to present their project?",
+                " Will startup projects be given a table like sponsors at the open house, and what is the duration of their presentation?"
+            ],
+            "responses": [
+                "Yes, startup founders are treated as sponsors. They will have tables assigned to them and must present for 2 minutes."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Student startup team size",
+            "patterns": [
+                "How many people can be on a startup team?",
+                " What is the maximum number of individuals allowed on a startup team?",
+                " Is there a limit to the number of members that can join a startup team?",
+                " Can you provide information on the maximum team size for a startup project?",
+                " How many people are permitted to be on a startup team?"
+            ],
+            "responses": [
+                "Startup teams cannot exceed 4 people including the founder/PM"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Time commitment for sponsor meetings",
+            "patterns": [
+                "Is there a way to know beforehand when sponsors expect us to meet during the duration of the semester?",
+                " What times will we meet with sponsors for projects?",
+                " Are we able to obtain information ahead of time about the meeting schedule that sponsors require throughout the semester?",
+                " Is there a way to find out beforehand the meeting schedule that sponsors expect us to adhere to throughout the semester?",
+                " Can we find out in advance the meeting schedule that sponsors expect us to follow during the semester?"
+            ],
+            "responses": [
+                "No, you will not be able to know beforehand. You should ask them for this information during the open house"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Member of student startup signing NDA",
+            "patterns": [
+                "If I am a member of a startup project, do I have to do the capstone NDA?",
+                " Do I have to sign the Capstone NDA?",
+                " Do I need to sign an NDA?"
+            ],
+            "responses": [
+                "If you are a member of a startup, you do not have to sign the capstone NDA., You must sign the Capstone NDA if you have working with a sponsor.., Students who are PMs or indsutry workers need to sign for sponsored related projects.,"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Professor office hours",
+            "patterns": [
+                "When are office hours?",
+                " What is the professor's office hours?",
+                " When can I talk to the professor?",
+                " Does the professor have office hours?",
+                " What time can I contact the professor?"
+            ],
+            "responses": [
+                "The professor is available 24/7. DM him to arrange a virtual meeting."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "What to do after reading Cisco excel sheet",
+            "patterns": [
+                "After reading the Cisco excel sheet, is there anything we need to confirm/accept or acknowledge?",
+                " Am I supposed to do anything else after reading the cisco excel sheet?",
+                " Is there any other action required of me following my review of the Cisco excel sheet?",
+                " Should I anticipate any additional tasks after reading through the Cisco excel sheet?",
+                " Are there any further responsibilities or obligations for me to fulfill subsequent to my examination of the Cisco excel sheet?"
+            ],
+            "responses": [
+                "As a CISCO approved member, no further action is needed"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "NDA confidentiality period",
+            "patterns": [
+                "What is the confidentiality period for the NDA we are required to sign?",
+                " When does the NDA ware off?",
+                " When can I talk about the NDA?",
+                " Can I speak on the project after the semester?",
+                " Can you provide information on the duration of the confidentiality period for the NDA that we are required to sign?"
+            ],
+            "responses": [
+                "For the semester timeframe but its expectation is unlimited"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Class information",
+            "patterns": [
+                "What room is the class in?",
+                " What building is the class in?",
+                " Where is the classroom?",
+                " In which room is the class taking place?",
+                " What is the location of the classroom for the class?"
+            ],
+            "responses": [
+                "** West lect 1 ** May change ** Variable **"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "List of Student startup projects",
+            "patterns": [
+                "Where are the student startup projects located?",
+                " Where can I see the startup projects?",
+                " Wheres the document for the projects that students started on?",
+                " Is there a paper for student startup projects?",
+                " I want to join a student startup",
+                " where is the document?"
+            ],
+            "responses": [
+                "You can find the startup document here ** Link **"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Contact sponsors",
+            "patterns": [
+                "Where can I contact sponsors before the openhouse as a PM?",
+                " As a PM, what is the method to reach sponsors prior to the open house?",
+                " How can I get in touch with sponsors as a PM before the open house?",
+                " Before the open house, where can I reach out to sponsors as a PM?",
+                " What is the channel for PMs to contact sponsors before the open house?"
+            ],
+            "responses": [
+                "You can contact them on Discord"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "NDA submission deadline",
+            "patterns": [
+                "When do I have to submit the NDA?",
+                " When is the NDA due?",
+                " Does the NDA have to be signed before the openhouse?",
+                " What is the deadline for submitting the NDA?",
+                " By what date do I need to submit the NDA?"
+            ],
+            "responses": [
+                "NDAs must be signed and submitted 2 days in advance to the open house."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Signing NDA if a part of student startup",
+            "patterns": [
+                "If I plan on joining a student startup",
+                " do I have to sign the NDA?",
+                " Do student startups require NDAs?",
+                " Are NDAs necessary for student startups?",
+                " Is it mandatory for student startups to have NDAs?",
+                " Do student startups need to have NDAs in place?"
+            ],
+            "responses": [
+                "You should sign the NDA just in case you may want to join an industry project during the Open House"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Startup founders signing NDAs",
+            "patterns": [
+                "Do startup founders have to sign the NDA?",
+                " I have a startup, do I have to sign the NDA?",
+                " Do I submit the NDA if I am a startup founder?",
+                " Do startup founders have to submit the NDA?",
+                " I have a startup, do I have to submit the NDA?"
+            ],
+            "responses": [
+                "Start up founders usually do not have to sign an NDA, however you should just in case you do not get enough members for you team, you will join an industry team"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Bringing NDA to Open House",
+            "patterns": [
+                "Do we have to bring our NDAs to the openhouse?",
+                " Do I need to print the NDA?",
+                " How many pages of the NDA do I bring?",
+                " Is it necessary to bring our NDAs to the open house?",
+                " Do we need to have our NDAs with us during the open house?"
+            ],
+            "responses": [
+                "NDAs are submitted to canvas"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "ID at the Open House",
+            "patterns": [
+                "Do I need my student ID at the openhouse?",
+                " Is it mandatory to bring my student ID to the open house?",
+                " Am I required to have my student ID with me during the open house?",
+                " Do I need to bring my student ID when attending the open house?",
+                " Should I have my student ID with me at the open house?"
+            ],
+            "responses": [
+                "Student ID is not needed for the Open House"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Student start up introductions at the open house",
+            "patterns": [
+                "Will project managers for student start ups also be making a 2 minute introduction about their project at the open house? Do I have to do an intro on my startup at the openhouse?",
+                " Is it necessary to provide an introduction to my startup at the open house?",
+                " Do I need to present an introduction to my startup during the open house?",
+                " Can you confirm whether project managers for student startups are also required to deliver a 2-minute introduction about their project during the open house?"
+            ],
+            "responses": [
+                "Startup founders are doing everything that a sponsor would"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Attire for the Open House",
+            "patterns": [
+                "How should I dress for the open house?",
+                " What is the attire for the open house?",
+                " Are we dressing professional at the open house?",
+                " What should I wear at the open house?",
+                " What is recommended to wear at the openhouse?"
+            ],
+            "responses": [
+                "You should dress business casual for the Open House"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Parking at the Open House",
+            "patterns": [
+                "Will there be parking at the open house?",
+                " Where can I park at the openhouse?",
+                " Is there available parking at the open house?",
+                " Where can I park my vehicle during the open house?",
+                " Are there any parking facilities provided for the open house event?"
+            ],
+            "responses": [
+                "Sponsors will have parking, however we do not reserve parking for students."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Arriving at the open house",
+            "patterns": [
+                "Can we come in at 1pm at the open house?",
+                " Can we come at a later time to the open house?",
+                " Do I have to come in at 12pm to the open house?",
+                " Can I arrive later at the open house?",
+                " What's the latest I can come to the openhouse?"
+            ],
+            "responses": [
+                "The 12pm lunch is optional. Set up and communications start at 12 and many presentations start 30 mins in advance if people are ready"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Open House lunch",
+            "patterns": [
+                "What will be served for lunch?",
+                " Will there be lunched served at the openhouse?",
+                " Is there food at the open house?",
+                " Are there snacks at the open house?",
+                " Can we eat at the open house?"
+            ],
+            "responses": [
+                "Subs, chips, and beverages will be served for lunch"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Project approval confirmation",
+            "patterns": [
+                "How do I know if Im approved for a project?",
+                " Is there a way to find out if a company approved me?",
+                " What is the process for determining whether I have been approved for a project?",
+                " Is there a way to confirm if my application for a project has been accepted by the company?",
+                " How can I ascertain whether I have been approved for a project or not?"
+            ],
+            "responses": [
+                "You will get a message in #approvals, once approved you can commit in the #team-commitment channel, once the whole team is commited you must take a picture with them"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Leaving the open house",
+            "patterns": [
+                "Can I leave the open house early?",
+                " Do I have to stay the whole duration of the open house?",
+                " Can I leave before the open house finishes?",
+                " After I take a photo and commit, can I leave the open house?",
+                " Is it possible for me to depart the open house earlier than scheduled?",
+                " After I commit to a sponsor, can I leave the open house?",
+                " What do I do after I've commited to a project?",
+                " Can I leave after being aproved to a project?",
+                " Can I leave early after commiting to a sponsor?",
+                " After being approved for a project",
+                " can I leave?"
+            ],
+            "responses": [
+                "No, you cannot leave the open house early even if you have approved and commited to a team"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Showcase/final date",
+            "patterns": [
+                "When is the showcase?",
+                " When is the final?",
+                " What date is the showcase?",
+                " When should the project be finished?",
+                " What day is the final?"
+            ],
+            "responses": [
+                "The showcase/final is on ** DATE **. You will present your projects then."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Import dates ",
+            "patterns": [
+                "What are the important dates?",
+                " Can you provide a list of crucial dates?",
+                " What are the significant dates that I need to be aware of?",
+                " Are there any important dates that I should know about?",
+                " Could you please share the essential dates with me?"
+            ],
+            "responses": [
+                "The list of important dates are:\nNDA Submission: ** Date **\nOpen house: ** Date **\nProgress & Scope (PMs only): Weekly\nMidterm: ** Date **\nShowcase: ** Date **"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Cisco students class",
+            "patterns": [
+                "Do cisco students have to attend F2F class after open house?",
+                "As a CISCO student, do I have to attend regular class?",
+                " Is regular attendance mandatory for CISCO students in class?",
+                " Do CISCO students have to attend class on a regular basis?",
+                " Are CISCO students required to attend class regularly?"
+            ],
+            "responses": [
+                "Yes, CISCO students have to attend the F2F class after the Open house"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Alternating class attendance days",
+            "patterns": [
+                "I am in the Thursday section of class, can I come to the F2F class on Tuesday?",
+                " Can I attend another class day instead of the asigned one?",
+                " Can I attend the F2F class even if it's not my scheduled day? Is it possible to attend the F2F class on a different day than my designated class day?",
+                " Would I be allowed to go to the F2F session on a different day than my regular class day?",
+                " Am I permitted to attend the F2F class on a day that is not my usual class day?"
+            ],
+            "responses": [
+                "Yes"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Other ways of team communication",
+            "patterns": [
+                "Are we allowed to make separate discords for our team/project?",
+                " Can we make another discord for our team?",
+                " Is it permissible to create a separate Discord for our project or team?",
+                " Are we allowed to make an additional Discord server for our team or project?",
+                " Can we set up another Discord server for our project or team?"
+            ],
+            "responses": [
+                "Yes, you are encouraged so you can have full control over organization to ease communication."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Scope and Progress report submission",
+            "patterns": [
+                "Do CISCO students have to do the scope and progress report?",
+                " Who submits the scope and progress report?",
+                " Do I have to submit the scope and progress report?",
+                " Who is responsible for handing in the scope and progress report?",
+                " Who is accountable for submitting the scope and progress report for CISCO students?",
+                " Who fills out the scope and time management assignment?"
+            ],
+            "responses": [
+                "Only the PMs have to complete the scope and time management assignment. PMs from regular projects as well as CISCO PMs."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Open house information",
+            "patterns": [
+                "What am I doing at the open house?",
+                "What can I expect at the open house?",
+                " What should I anticipate at the open house?",
+                " What activities are involved at the open house?",
+                " What is typically expected of me at the open house?"
+            ],
+            "responses": [
+                "Going up to sponsors and handing out your resume to apply for their company. You should give your resume to 3 companies max. \r\nLunch at 12 noon\r\n\u2022    1 PM: Sponsor Intros\r\n\u2022    3:00 PM Students register their names with sponsors they are interested in working with using F-T-F communication and corresponding sponsors\u2019 Discord channels\r\n\u2022    3-5 PM: The sponsors interview the applicants during the same open house, approve them, and then have an initial meeting to exchange contact information and agree on the first formal meeting."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Open house company acceptance",
+            "patterns": [
+                "What do I do if I don\u2019t get accepted by a company?",
+                " What happens if a company doesn't take me?",
+                " What happens if a sponsor doesn't take me?",
+                " I didn't get accepted to a company, what do I do?",
+                " I didn't get approved by a sponsor, what should I do?",
+                " Is it possible not to get selected at the openhouse?"
+            ],
+            "responses": [
+                "We have developed backup plans to find an opportunity for each student so no one is left out. The important thing is that you do your part, attend, communicate, apply, commit, and respond promptly."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Signing an NDA",
+            "patterns": [
+                "Do I have to sign an NDA that my sponsor gave me?",
+                " My sponsor gave me an NDA, what should I do?",
+                " Is it mandatory for me to sign the NDA provided by my sponsor?",
+                " What is the protocol for signing the NDA given to me by my sponsor?",
+                " Should I sign the NDA that was given to me by my sponsor?"
+            ],
+            "responses": [
+                "NO, do not sign anything other than what was given on Canvas unless Dr. Eljabiri has verified you can. Contact the professor ASAP as we have our own NDA so that you and your work are not put in jeopardy. Sponsors are aware not to have you assign anything additional. NDAs are legally bidning and not to be taken lightly."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Final group information",
+            "patterns": [
+                "Where is the list of final team matchings?",
+                " Where can I see the list of final teams?",
+                " Is there a document to see the final teams? Who is on what team? Can you provide information on where to locate the list of final team assignments?",
+                " Who is on my team?"
+            ],
+            "responses": [
+                "You can view the final lists of teams here ** LINK **"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Midterm information",
+            "patterns": [
+                "When is the midterm?",
+                " Could you please tell me the date of the midterm exam?",
+                " When is the midterm scheduled to take place?",
+                " At what time does the midterm exam begin?",
+                " When can I expect the midterm to occur?"
+            ],
+            "responses": [
+                "The midterm is on ** LINK **"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Individual assignment submission",
+            "patterns": [
+                "Do us non PMs need to submit anything over the coming weeks?",
+                " As regular members",
+                " do we need to submit anything over the weeks?",
+                " Is there anything that non-PMs are required to submit in the upcoming weeks?",
+                " Are there any obligations for non-PMs to submit anything in the upcoming weeks?",
+                " Do non-PMs have to hand in any materials over the next few weeks?"
+            ],
+            "responses": [
+                "No, the PM will submit deliverables and work on behalf of their team"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Progress report corrections",
+            "patterns": [
+                "If there was a mistake on our progress reports, can we fix it?",
+                " I made a mistake on the progress report, can I go back?",
+                " Would it be possible to correct an error made on the progress report?",
+                "Is there a way to fix mistakes on the progress report after it has been submitted?",
+                " Can we amend the progress report if we discover an error after submission?"
+            ],
+            "responses": [
+                "No, you may not resubmit progress reports. Please read through the reminders/rubric and rectify mistakes in your next progress report"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Open house workshop attendance",
+            "patterns": [
+                "Is there a sign in page for the capstone open university or do we just show up?",
+                " Is attendance taken at the capstone university?",
+                " Do we need to sign in for the Capstone Open University, or can we just show up?",
+                " Is there a registration process for the Capstone Open University, or do we simply attend the event?",
+                " Is there a check-in process for the Capstone Open University, or can we walk in without any prior registration?"
+            ],
+            "responses": [
+                "The software engineering coaches will record attendance, students do not have to worry"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Open house workshop attendance",
+            "patterns": [
+                "Are the capstone open house workshops mandatory?",
+                " Do we have to attend the open house workshops?",
+                " Are the workshops at the Capstone Open House compulsory to attend?",
+                " Is attendance at the open house workshops mandatory?",
+                " Do we need to participate in the workshops at the Capstone Open House?"
+            ],
+            "responses": [
+                "No, they are optional but highly encouraged. You will receive extra credit for each session you attend and actively engage in"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Cisco qualifier exam details",
+            "patterns": [
+                "How long is the cisco qualifier exam?",
+                " How many questions is the cisco qualifer exam?",
+                " How many minutes do I get in the cisco qualifier exam?",
+                " How much time do I get to answer the cisco qualifer questions? How many seconds/minutes per question do I get on the cisco qualifer exam kahoot?"
+            ],
+            "responses": [
+                "There are 40-50 questions in the Cisco Qualifier Exam that takes an hour to complete. There is 30-60 seconds given to answer each question depending on the question's length."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Operations team contact information",
+            "patterns": [
+                "What is the operations team email?",
+                " What is the email for the operations team?",
+                " Is there an email for the ops team?",
+                " Is there an email for the operations team?",
+                " Can you give me the email for the ops team?"
+            ],
+            "responses": [
+                "Pinned in Announcements"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Resubmitting progress reports",
+            "patterns": [
+                "Can we resubmit our progress reports?",
+                " Can we resubmit our progress reports if there was a mistake?",
+                " Can we resubmit our progress reports if there was an error?",
+                " I made a mistake on the progress report, can I resubmit it?",
+                " Is it possible to correct the progress report if there was an error?"
+            ],
+            "responses": [
+                "Previously submitted Progress Reports cannot be resubmitted. Read through the reminders/rubric and you can fix your mistake in the next progress report."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Class in Spring Break",
+            "patterns": [
+                "Do teams have to meet during spring break?",
+                " Do I need to work during spring break?",
+                " Do I have to meet up with my sponsor during spring break?",
+                " During Spring Break, do we have to meet up?"
+            ],
+            "responses": [
+                "From the words of Dr.Eljabiri, \"Spring break is a break, even in the capstone.\" It is up to your sole discretion to work on the project during the break."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Technical support",
+            "patterns": [
+                "Who can I reach out to if I have any technical questions?",
+                " I have a technical problem I'm stuck on, who can I reach out too?",
+                " Is there someone to reach out to if I have a technical question?",
+                " Is it possible to get help on a technical question? Who is available if I need help with a technical question?"
+            ],
+            "responses": [
+                "You can reach out to the software engineer coaches."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Submission of midterm",
+            "patterns": [
+                "My team has two project managers and we have separated into two sub teams. We are working on the same project but different tasks. Do we need to submit two different videos for the midterm or one video since there will be a lot of overlap?",
+                " My team was split into two teams, but we are working on the same project. Do we have to submit two different videos for the midterm?",
+                " Our team was split into two but we're working on the same project just with different tasks, are we submitting two different midterms?"
+            ],
+            "responses": [
+                "If the total number of the two sub teams exceed 5 people, then the answer is yes. This is a college  policy for the capstone to eliminate free riding and ensure that all members contribute equally."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Software engineer coach responsibilities",
+            "patterns": [
+                "What do the software engineering coaches do?",
+                " What responsibilites do the software engineering coaches have?",
+                " Why do we have software engineering coaches?",
+                " Do the software engineering coaches do anything?",
+                " What are software engineering coaches responsible for?"
+            ],
+            "responses": [
+                "The coaches hold workshops about once a week focusing on technical or career building skills for all Capstone students. Topics from before were behavioral interview tips, wire framing with Figma, and more. The team also provides problem solving support to industry and startup students that have any technical related problems. Things like helping debug code on a call or researching error messages for platform relates issues or finding learning resources that teams can use to make their projects a success."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Progress report grades",
+            "patterns": [
+                "How are progress report grades determined?",
+                " Why did I get a low progress report grade?",
+                " What is the grading rubric of progress reports?",
+                " What can I expect from my progress report grade?",
+                " My progress report grade is not what I thought it was, why?"
+            ],
+            "responses": [
+                "Team members grades depend on how your Project Manager grades you in the progress report. If you are a team member and have a concern, then you should discuss with your Project Manager."
+            ],
+            "context_set": ""
+        }
+    ]
+}
