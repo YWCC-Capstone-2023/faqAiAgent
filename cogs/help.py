@@ -17,6 +17,8 @@ class HelpSelect(Select):
 
         self.bot = bot
 
+
+
     async def callback(self, interaction: discord.Interaction) -> None:
         cog = self.bot.get_cog(self.values[0])
         assert cog
@@ -48,6 +50,8 @@ class Help(commands.Cog):
         self.bot = bot
         print("Help Loaded\n")
 
+
+
     @commands.hybrid_command(name="help", descripition = "Show a list of commands!", guild_ids = [1072948383955816459])
     async def help(self, ctx:commands.Context) -> None:
         embed = discord.Embed(
@@ -56,6 +60,8 @@ class Help(commands.Cog):
         )
         view = View(timeout=60).add_item(HelpSelect(self.bot))
         await ctx.send(embed=embed, view = view, ephemeral=True)
+
+
 
 async def setup(bot:commands.Bot) -> None:
     await bot.add_cog(Help(bot))

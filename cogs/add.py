@@ -1,6 +1,7 @@
 import os
 
 from discord.ext import commands
+from discord import app_commands
 import discord
 
 import pygsheets
@@ -52,11 +53,12 @@ class Add(commands.Cog):
         print("Add Loaded\n")
 
 
-
-    @commands.hybrid_command(name="add", description= "Add a question, answer, topic set to the database!",guild_ids=[1072948383955816459])
-    @commands.has_any_role(["Professor", "Operations", "Team Member", "Server Admin"])
-    async def add(self, ctx:discord.Interaction) -> None:
-        await ctx.response.send_modal(AddModal())
+    #@commands.hybrid_command(name="add", description= "Add a question, answer, topic set to the database!",guild_ids=[1072948383955816459])
+    #@commands.bot.tree.command(name='add',description='Add a question, answer, tag set to the database!')
+    @app_commands.command(name="add",description="Add a question, answer, tag set to the database!")
+    @commands.has_any_role("Professor", "Operations", "Team Member", "Server Admin")
+    async def add(self, interaction:discord.Interaction) -> None:
+        await interaction.response.send_modal(AddModal())
 
 
     @add.error
@@ -64,6 +66,7 @@ class Add(commands.Cog):
         if isinstance(error, commands.errors.MissingAnyRole):
             await ctx.reply(f"You do not have permission to do that!", ephemeral=True)
         else:
+            print(error)
             await ctx.reply(f"Sorry {ctx.author.mention},I do not understand! Please ping the Professor!", ephemeral=True)
 
 
