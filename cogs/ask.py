@@ -1,4 +1,5 @@
 import os, json, pandas as pd
+from platform import system
 
 from discord.ext import commands
 import discord
