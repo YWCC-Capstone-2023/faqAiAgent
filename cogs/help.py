@@ -3,6 +3,8 @@ from discord.ui import View, Select
 import discord
 
 class HelpSelect(Select):
+    """Class to Generate Help Select Dropdown
+    """
     def __init__(self, bot:commands.Bot):
         super().__init__(
             placeholder='Choose a command',
@@ -40,12 +42,14 @@ class HelpSelect(Select):
         return await super().callback(interaction)
 
 class Help(commands.Cog):
-    def __init__(self, bot):
+    """Cog for /help command on FaqAiBot
+    """
+    def __init__(self, bot:commands.Bot) -> None:
         self.bot = bot
         print("Help Loaded\n")
 
     @commands.hybrid_command(name="help", descripition = "Show a list of commands!", guild_ids = [1072948383955816459])
-    async def help(self,ctx:commands.Context):
+    async def help(self, ctx:commands.Context) -> None:
         embed = discord.Embed(
             title="Help Command",
             description="List of Commands!"
@@ -53,5 +57,5 @@ class Help(commands.Cog):
         view = View(timeout=60).add_item(HelpSelect(self.bot))
         await ctx.send(embed=embed, view = view, ephemeral=True)
 
-async def setup(bot):
+async def setup(bot:commands.Bot) -> None:
     await bot.add_cog(Help(bot))

@@ -24,7 +24,6 @@ else:
 TOKEN = configData["Token"]
 PREFIX = configData["Prefix"]
 
- 
 intents = discord.Intents.all()
 intents.message_content = True
 client = discord.Client(command_prefix='!', intents=intents)

@@ -8,6 +8,8 @@ import discord
 from neuralintents import GenericAssistant
 
 class Ask(commands.Cog):
+    """Cog for /ask command on FaqAiBot
+    """
     SPREADSHEET = "https://docs.google.com/spreadsheets/d/1m51HUH0AQi28EBnsLwP9gasUHPuLVzFuNu1L4N6Zs-Y/gviz/tq?tqx=out:csv&sheet=Question+and+Answers_new"
     PATH_TO_INTENTS = ''
     PATH_TO_MODEL = ''
@@ -18,21 +20,24 @@ class Ask(commands.Cog):
 
         self.__train_agent()
 
-    def path_creator(self):
+
+
+    def __path_creator(self) -> None:
+        """
+        Change paths based on which system cog is running on
+        """
         userSystem = system()
 
         self.PATH_TO_INTENTS = os.getcwd() + "\\intents\\" if userSystem == 'Windows' else os.getcwd() + "/intents/"
         self.PATH_TO_MODEL = os.getcwd() + "\\trained_model\\" if userSystem == 'Windows' else os.getcwd() + "/trained_model/"
-        
-        print(self.PATH_TO_INTENTS)
-        print(self.PATH_TO_MODEL)
+
+
 
     @commands.hybrid_command(name='ask', description="Ask the bot a question!", guild_ids=[1072948383955816459])
-    async def ask(self, interaction: discord.Interaction, question:str):
+    async def ask(self, interaction: discord.Interaction, question:str) -> None:
         """Ask the Bot a question
 
         Args:
-            interaction (discord.Interaction): Context Manager
             question (str): question user passes to command via discord client
         """
         response = self.agent.request(question)
@@ -41,7 +46,7 @@ class Ask(commands.Cog):
 
 
     @ask.error
-    async def ask_error(self, ctx:commands.Context, error):
+    async def ask_error(self, ctx:commands.Context, error:Exception) -> None:
         if isinstance(error, commands.errors.MissingRole):
             await ctx.reply(f"You do not have permission to do that!", ephemeral=True)
         else:
@@ -68,10 +73,9 @@ class Ask(commands.Cog):
         
         return df
     
-    
+
 
     def __load_spreadsheet_as_intents(self,df:pd.DataFrame, new_filename:str = PATH_TO_INTENTS) -> None:
-        # print(f"Load_Spreadsheet_as_intents Currently in : {os.getcwd()}")
         """
         Writes to a file a DataFrame as a json object
 
@@ -79,7 +83,7 @@ class Ask(commands.Cog):
             df (pandas.DataFrame) : The dataframe to be written to the file
             new_filename (str) : The name of the file, Default = intents.json
         """
-        self.path_creator()
+        self.__path_creator()
 
         df = self.__convert_col_to_list(df, "patterns")
         df = self.__convert_col_to_list(df, "responses")
@@ -92,7 +96,6 @@ class Ask(commands.Cog):
 
         json_obj = json.dumps(parsed_df, indent = 4)
 
-        print(os.path.join(self.PATH_TO_INTENTS,'intents.json'))
 
         with open(os.path.join(self.PATH_TO_INTENTS,'intents.json'), 'w') as f:
             f.write(json_obj)
@@ -124,13 +127,18 @@ class Ask(commands.Cog):
 
 
 
-    def __train_agent(self):
-        #implement method to check for last modified date here
+    def __train_agent(self) -> None:
+        """
+        Train AI agent
         
-        self.__get_intents(self.SPREADSHEET)
+        """
+        
+        self.__get_intents(self.SPREADSHEET, new_filename='/intents/intents.json')
 
-        self.agent = GenericAssistant('intents.json', model_name='faqAiAgent')
+        self.agent = GenericAssistant('/intents/intents.json', model_name='faqAiAgent')
 
+        #check if there already exists some presaved model, speed up the bot login
+        #implement method to check for last modified date here
         if os.path.exists(os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}.h5')):
             self.agent.load_model(model_name= os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}'))
         else:
@@ -139,5 +147,5 @@ class Ask(commands.Cog):
 
 
 
-async def setup(bot):
+async def setup(bot:commands.Bot) -> None:
     await bot.add_cog(Ask(bot))

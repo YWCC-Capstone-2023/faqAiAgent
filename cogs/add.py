@@ -28,7 +28,8 @@ class AddModal(discord.ui.Modal, title = "Add a Question and Answer"):
     )
     
 
-
+    """on_submit -> return all of the modal text inputs
+    """
     async def on_submit(self, interaction: discord.Interaction, /) -> None:
         q = self.question
         a = self.answer
@@ -39,12 +40,14 @@ class AddModal(discord.ui.Modal, title = "Add a Question and Answer"):
     
 
 
-    async def on_error(self, interaction: discord.Interaction, error: Exception, /) -> None:
+    async def on_error(self, interaction:discord.Interaction, error:Exception, /) -> None:
         return await super().on_error(interaction, error)
 
 
 class Add(commands.Cog):
-    def __init__(self, bot):
+    """Cog for /add command on FaqAiBot
+    """
+    def __init__(self, bot:commands.Bot) -> None:
         self.bot = bot
         print("Add Loaded\n")
 
@@ -52,12 +55,12 @@ class Add(commands.Cog):
 
     @commands.hybrid_command(name="add", description= "Add a question, answer, topic set to the database!",guild_ids=[1072948383955816459])
     @commands.has_any_role(["Professor", "Operations", "Team Member", "Server Admin"])
-    async def add(self,ctx: discord.Interaction):
+    async def add(self, ctx:discord.Interaction) -> None:
         await ctx.response.send_modal(AddModal())
 
 
     @add.error
-    async def __add_error(self, ctx:commands.Context, error):
+    async def __add_error(self, ctx:commands.Context, error:Exception) -> None:
         if isinstance(error, commands.errors.MissingAnyRole):
             await ctx.reply(f"You do not have permission to do that!", ephemeral=True)
         else:
@@ -65,16 +68,26 @@ class Add(commands.Cog):
 
 
 
-def addMe(self,q,a,t='default_tag'):
-    if os.path.exists('../credentials/service_account_credentials.json'):
-        self.gc = pygsheets.authorize(service_file='../credentials/service_account_credentials.json')
+def addMe(self,q:str,a:str,t:str='default_tag') -> None:
+    """
+    Add the question, answer and tag to the google sheet. (probably prudent to move to mySql server moving forward)
+
+    Args:
+        q (str): question - will be added to the 'patterns' column.
+        a (str): answer - will be added to the 'responses' column.
+        t (str, optional): tag - will be added to the 'tag' column. Defaults to 'default_tag', please update either here or in google sheet
+    """
+    if os.path.exists('/credentials/service_account_credentials.json'):
+        self.gc = pygsheets.authorize(service_file='/credentials/service_account_credentials.json')
     else: pass
 
     sh = self.gc.open('Question and Answers_new')
     worksheet1 = sh[0]
+
+    #change this from 'A104' to whatever the first empty cell is
     worksheet1.append_table([q,a,t], start='A104')
 
 
 
-async def setup(bot):
+async def setup(bot:commands.Bot) -> None:
     await bot.add_cog(Add(bot))
