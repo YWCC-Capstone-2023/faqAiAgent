@@ -53,6 +53,5 @@ class Help(commands.Cog):
         view = View().add_item(HelpSelect(self.bot))
         await ctx.send(embed=embed, view = view, ephemeral=True)
 
-
 async def setup(bot):
     await bot.add_cog(Help(bot))

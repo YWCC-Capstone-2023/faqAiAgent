@@ -1,40 +1,38 @@
 from discord.ext import commands
 import discord
 import pygsheets
+import os
 
 class Add(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.gc = pygsheets.authorize(service_file='service_account_credentials.json')
+
+        if os.path.exists('credentials/service_account_credentials.json'):
+            self.gc = pygsheets.authorize(service_file='credentials/service_account_credentials.json')
+        else:
+            pass
+
         print("Add Loaded\n")
 
-    @commands.hybrid_command(name="add")
-    async def add(self, ):
-        pass
-
-    async def add(self,interaction: discord.Interaction, question:str, answer:str):
-        # a = content.find("?")
-        # user_question = content[:a+1]
-        # user_answer = content[a+1:].strip()
-        
+    @commands.hybrid_command(name="add", description= "Add a question, answer, topic set to the database!",guild_ids=[1072948383955816459])
+    @commands.has_any_role(["Professor", "Operations", "Team Member", "Server Admin"])
+    async def add(self,ctx: discord.Interaction, question:str, answer:str, topic:str = "default_tag"):
         print(f"Question: {question}\n")
         print(f"Answer: {answer}\n")
-        self.addMe(question,answer)
+        print(f'Topic: {topic}')
 
-        await interaction.response.send_message(f"{interaction.user.mention} We have added this question and answer in our Database.", ephermal = True)
+        self.addMe(question,answer,topic)
+        await ctx.reply(f"{ctx.author.mention} We have added this question and answer in our Database.", ephermal = True)
 
     @add.error
-    async def __add_error(self,interaction: discord.Interaction, error):
-        await interaction.response.send_message("Sorry! You do not have permission to execute this command!", ephemeral=True)
-
-    def __is_owner(self) -> bool:
-        def predicate(interaction: discord.Interaction):
-            return interaction.user.id == interaction.guild.owner_id
-        return discord.app_commands.check(predicate=predicate)
+    async def __add_error(self, ctx:commands.Context, error):
+        if isinstance(error, commands.errors.MissingAnyRole):
+            await ctx.reply(f"You do not have permission to do that!", ephemeral=True)
+        else:
+            await ctx.reply(f"Sorry {ctx.author.mention},I do not understand! Please ping the Professor!", ephemeral=True)
 
     def __addMe(self,q,a,t='default_tag'):
         sh = self.gc.open('Question and Answers_new')
-
         worksheet1 = sh[0]
         worksheet1.append_table([q,a,t], start='A104') #list should be question and answer
 

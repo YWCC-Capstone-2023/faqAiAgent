@@ -10,20 +10,15 @@ class Ask(commands.Cog):
 
     @commands.hybrid_command(name='ask', description="Ask the bot a question!", guild_ids=[1072948383955816459])
     async def ask(self, interaction: discord.Interaction, question:str):
-        
-        print('\n')
-        print(f"interaction : {interaction}")
-        print(f"Q: {question}")
         response = agent.request(question)
-        print(f"response: {response}")
-        print('\n')
-
         await interaction.reply(f"Hi, {interaction.author.mention}! {response}", ephemeral=True)
 
     @ask.error
-    async def ask_error(self, interaction:discord.Interaction, error):
-            await interaction.reply(f"Sorry {interaction.author.mention},I do not understand! Please ping the Professor!", ephemeral=True)
-
+    async def ask_error(self, ctx:commands.Context, error):
+        if isinstance(error, commands.errors.MissingRole):
+            await ctx.reply(f"You do not have permission to do that!", ephemeral=True)
+        else:
+            await ctx.reply(f"Sorry {ctx.author.mention},I do not understand! Please ping the Professor!", ephemeral=True)
 
 async def setup(bot):
     await bot.add_cog(Ask(bot))

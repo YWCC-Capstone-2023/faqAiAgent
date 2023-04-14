@@ -10,16 +10,16 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
 creds = ServiceAccountCredentials.from_json_keyfile_name(
-    'service_account_credentials.json', scope)
+    'credentials/service_account_credentials.json', scope)
 
 
-if os.path.exists("config.json"):
-    with open("config.json") as f:
+if os.path.exists("credentials/config.json"):
+    with open("credentials/config.json") as f:
         configData = json.load(f)
 else:
     configTemplate = {"Token": "", "Prefix": "!"}
 
-    with open(os.getcwd() + "\\faqAiAgent\credentials\config.json", "w+") as f:
+    with open(os.getcwd() + "credentials/config.json", "w+") as f:
         json.dump(configTemplate, f) 
 
 token = configData["Token"]
@@ -44,7 +44,7 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
     
     for filename in os.listdir('./cogs'):
-        if filename.endswith('.py') and filename not in ["add.py"]:
+        if filename.endswith('.py'):
             await bot.load_extension(f'cogs.{filename[:-3]}')
 
     try:

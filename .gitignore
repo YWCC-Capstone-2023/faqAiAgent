@@ -1,1 +1,5 @@
 credentials/
+/intents.json
+/faqAgent_classes.pkl
+/faqAgent_words.pkl
+/faqAgent.h5
