@@ -11,14 +11,27 @@ After creation of the Sheets, we used Python as our choice of coding language to
 ## How To Use The Bot
 The Bot utilizes simple commands in order to ask it questions within the Discord server. Follow the examples below to see how to interact with the bot:
 
-### Commands 
-#### /ask
-  The /ask command is the most used command the bot interacts with. This pre-text is needed before the user inputs their question for the bot. The /ask tells the bot that the user is asking a question and that it must identify what is being asked (Mix of column A and D in the Sheet) and find an answer for it (column B).
-#### /refresh
-#### /add
-  The /add feature is to be used by users who think that there is an important question that is missing from the excel sheet. The user utilizes the command when the question they tried to ask the bot was not found, but feel like it is a broad question that needs to be implemented in the database. Following the /add command would be the question and then the answer in which the user wants added to the Sheet. AFter hitting enter, the question and answer will automatically populate the excel sheet with the FAQ Bot Team needing to review and refine it for the bot to properly query it in the future for other students to use. When asking the question, students must cloe it with a '?' to let the bot know that is the end of the question, and the words that follow after the '?/ is the answer. Example:
+### /ask
+  ```
+  /ask When is the Open house?
+  /ask Do I have to attend the Open house?
+  ```
+This command is used for the bot to understand a question is about to be asked. The command is then followed by the question the user will ask.</br>
+  
+### /refresh
+ ```
+ /refresh
+ ```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor purus sit amet elit malesuada, non pellentesque magna venenatis. Praesent quis aliquam nibh. Nulla facilisi.
+### /add
   ```
   /add Is this a proper question? Yes it is
+  /add Do Co-PMS need to submit PM evaluation sheets? No they do not, they are PMs.
   ```
-  "Is this a proper question?" Would be added in Column A, and "Yes it is" would be added in column B on the Sheet. 
-#### /help
+  This command is used by users who think that there is an important broad question that is missing from the excel sheet. Following the command would be the question followed by a '?' and then the answer in which the user wants added to the Sheet. The question and answer will automatically populate the excel sheet. with the FAQ Bot Team needing to review and refine it for the bot to properly query it in the future for other students to use. </br>
+
+### /help
+   ```
+ /help
+ ```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor purus sit amet elit malesuada, non pellentesque magna venenatis. Praesent quis aliquam nibh. Nulla facilisi.
