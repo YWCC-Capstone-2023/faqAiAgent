@@ -16,23 +16,25 @@ class Reload(commands.Cog):
 
     @commands.hybrid_command(name='reload', description="Reload the bot's cogs!", guild_ids=[1072948383955816459])
     async def reload(self, ctx: discord.Interaction):
-        print("called reload")
+        
         embed = discord.Embed(
             title = "Reloading cogs...",
             color= 0x808080,
             timestamp=ctx.message.created_at
         )
         for file in os.listdir("./cogs/"):
-            print(f"searching cogs...{file}\n")
+            
             if file == 'ask.py' and not file.startswith("_"):
                 try:
-                    print(f"unloading: {file}")
+                    allow_mentions = discord.AllowedMentions(everyone=True)
+                    await ctx.send(content = "@everyone, the /ask function will be down for < 1 minute", allowed_mentions = allow_mentions)
                     await self.bot.unload_extension(f"cogs.{file[:-3]}")
                     await self.bot.load_extension(f"cogs.{file[:-3]}")
                     embed.add_field(
                         name = f"Reloaded: `{file}`",
                         value = '\uFEFE'
                     )
+                    
                 except Exception as e:
                     print(f"Exception: {e}")
                     embed.add_field(
@@ -41,6 +43,7 @@ class Reload(commands.Cog):
                     )
                 await asyncio.sleep(1)
             continue
+        await ctx.send("The /ask function is back up and running!")
         await ctx.send(embed=embed, ephemeral=True)
 
 
