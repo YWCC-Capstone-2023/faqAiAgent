@@ -1,47 +1,48 @@
 from discord.ext import commands
 from discord.ui import View, Select
+import os
 import discord
+import asyncio
 #from ask import __train_agent, __path_creator
 
 
-class Refresh(commands.Cog):
+class Reload(commands.Cog):
     """Cog for /refresh command on FaqAiBot
     """
-    def __init__(self, bot:commands.Bot) -> None:
-        self.bot = bot
-        print("Refresh Loaded\n")
-
-    @commands.hybrid_command(name="refresh", description = "Refresh the Bot!", guild_ids = [1072948383955816459])
-   
-    async def refresh(self, ctx:commands.Context) -> None:
-        embed = discord.Embed(
-            title="Refresh Command",
-            description="Refresh the Bot!"
-        )
-        await ctx.reply("Refreshed!", ephemeral = True)
-        
     
-    @refresh.error
-    async def refresh_error(self, ctx:commands.Context, error:Exception) -> None:
-        if isinstance(error, commands.errors.MissingAnyRole):
-            await ctx.reply(f"You do not have permission to do that!", ephemeral=True)
-        else:
-            print(f"Error: {error}")
-            await ctx.reply(f"{ctx.author.mention}, refresh did not work! Please try again later!", ephemeral=True)
+    def __init__(self, bot) -> None:
+        self.bot = bot
+        print("Reload Loaded\n")
 
-    async def _reload(self, *, module : str):
-        """Reloads a module."""
-        try:
-            self.bot.unload_extension(module)
-            print("Unloaded")
-            self.bot.load_extension(module)
-            print("Loaded")
+    @commands.hybrid_command(name='reload', description="Reload the bot's cogs!", guild_ids=[1072948383955816459])
+    async def reload(self, ctx: discord.Interaction):
+        print("called reload")
+        embed = discord.Embed(
+            title = "Reloading cogs...",
+            color= 0x808080,
+            timestamp=ctx.message.created_at
+        )
+        for file in os.listdir("./cogs/"):
+            print(f"searching cogs...{file}\n")
+            if file == 'ask.py' and not file.startswith("_"):
+                try:
+                    print(f"unloading: {file}")
+                    await self.bot.unload_extension(f"cogs.{file[:-3]}")
+                    await self.bot.load_extension(f"cogs.{file[:-3]}")
+                    embed.add_field(
+                        name = f"Reloaded: `{file}`",
+                        value = '\uFEFE'
+                    )
+                except Exception as e:
+                    print(f"Exception: {e}")
+                    embed.add_field(
+                        name = f"Failed: `{file}`",
+                        value = e
+                    )
+                await asyncio.sleep(1)
+            continue
+        await ctx.send(embed=embed, ephemeral=True)
 
-        except Exception as e:
-            await self.bot.say('didnt work \n',ephemeral=True)
-            await self.bot.say('{}: {}'.format(type(e).__name__, e),ephemeral=True)
-        else:
-            await self.bot.say(f'Refresh Worked\n',ephemeral=True)
 
 async def setup(bot:commands.Bot) -> None:
-    await bot.add_cog(Refresh(bot))
+    await bot.add_cog(Reload(bot))

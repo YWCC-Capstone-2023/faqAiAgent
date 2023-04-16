@@ -4,7 +4,17 @@
             "tag": "Kahoot Quiz Location",
             "patterns": [
                 "Where do I find the Kahoot quiz?",
-                " Where is the Kahoot quiz?"
+                " Where is the Kahoot quiz?",
+                "Where can I locate the Kahoot quiz?",
+                "What is the location of the Kahoot quiz?",
+                "How do I find the Kahoot quiz?",
+                "In which place can I access the Kahoot quiz?",
+                "What is the whereabouts of the Kahoot quiz?",
+                "Where should I look for the Kahoot quiz?",
+                "What is the designated spot for the Kahoot quiz?",
+                "How can I discover the Kahoot quiz?",
+                "Where exactly is the Kahoot quiz located?",
+                "What is the specific location of the Kahoot quiz?"
             ],
             "responses": [
                 "You can find the link on Canvas ** Link **"
@@ -18,7 +28,17 @@
                 "At what time do the interviews begin?",
                 " What is the start time for the interviews?",
                 " When is the interview process scheduled to commence?",
-                " When are the interviews set to begin?"
+                " When are the interviews set to begin?",
+                "What is the start time for interviews?",
+                "At what time do the interviews begin?",
+                "When do the interview sessions kick off?",
+                "What time are the interviews scheduled to start?",
+                "When will the interviews commence?",
+                "At what hour do the interviews initiate?",
+                "What is the designated start time for interviews?",
+                "When do the interviews get underway?",
+                "At what time should I expect interviews to begin?",
+                "What time do the interviews kick off?"
             ],
             "responses": [
                 "Interviews start on <date>"
@@ -68,13 +88,17 @@
             "context_set": ""
         },
         {
-            "tag": "When Date Open House",
+            "tag": "When is the Open House",
             "patterns": [
                 "When is the open house?",
                 " What is the date and time for the open house event?",
                 " When is the scheduled open house session?",
                 " Could you tell me the date and time of the upcoming open house?",
-                " At what time and day is the open house program?"
+                " At what time and day is the open house program? Is the open house this week?",
+                " What time is the open house? Do you know the date of the open house?",
+                " Is there a date for the open house?",
+                " When can I expect to attend the open house?",
+                ""
             ],
             "responses": [
                 "The Open House is on <date> at <time> in the <place (atrium/ballroom, etc)>"
@@ -88,7 +112,14 @@
                 " Do I have to attend the entire open house?",
                 " Who doesn't have to attend the open house?",
                 " Do I have to go to the open house as part of the software automation channel?",
-                " Do Software engineering coaches need to attend the open house?"
+                " Do Software engineering coaches need to attend the open house?",
+                " Do I have to attend the open house?",
+                " Who has to attend the open house?",
+                " What teams have to go to the open house?",
+                " Should I go to the open house?",
+                " Do i need to go to the open house?",
+                " Should I attend the open house?",
+                " How serious is it to go to the open house?"
             ],
             "responses": [
                 "All industry, start-up applicants, and enterprise teams must attend the open house unless you were granted approval by the professor. RWC, Cisco, and Software Automation students are not required. However software automation must have a representative to be there."
@@ -152,7 +183,7 @@
             "context_set": ""
         },
         {
-            "tag": "number RWC coaches per topic",
+            "tag": "Number of RWC coaches per topic",
             "patterns": [
                 "How many RWC coaches are allowed per topic?",
                 " What is the maximum number of RWC coaches permitted per topic?",
@@ -383,7 +414,12 @@
         {
             "tag": "Kahoot error message",
             "patterns": [
-                "I am trying to take the kahoot but I get an error message \"Uh-oh this game has alrady reached the max number of players. Ask the host to increase the limit\""
+                "I am trying to take the kahoot but I get an error message \"Uh-oh this game has alrady reached the max number of players. Ask the host to increase the limit\", what should I do?",
+                " The kahoot game has an error in it, what should I do?",
+                " How do I do the kahoot? I'm getting an error message.",
+                " When I try to do the kahoot I get \"Uhoh this game has already reached the max number of players\" what should I do?",
+                " I get an error message \"Uh-oh this game has already reached the max number of players. Ask the hose to increase the limit\", how do I take the kahoot test?",
+                " Getting error message on kahoot max number of players reached, how can I take the exam?"
             ],
             "responses": [
                 "Contact the professor on discord about this issue"
@@ -398,7 +434,11 @@
                 " What is the recommended solution if our Kahoot name exceeds the character limit?",
                 " Can you provide guidance on what to do if our Kahoot name is too long to fit in the allotted space?",
                 " In the event that our Kahoot name is too long",
-                " what is the appropriate course of action?"
+                " what is the appropriate course of action?",
+                " My name is too long for the kahoot, how should I proceed?",
+                " How can I put my full name on kahoot?",
+                " What do we do if our name is too long for kahoot?",
+                " Name is too long for kahoot, what should I do?"
             ],
             "responses": [
                 "Try to fit as much as your First and Last name as possible"
@@ -650,10 +690,10 @@
             "tag": "Project manager sponsor choosing",
             "patterns": [
                 "If I am chosen as a PM, will you assign me to an industry project or will they go through the process of the open house and submit their resumes to sponsors?",
-                "\nIf I get selected as a PM, will I be assigned to an industry project directly or do I have to participate in the open house and submit my resume to the sponsors?",
-                "\nIn the event that I am chosen as a PM, will I be assigned to an industry project or will I have to follow the open house process and submit my resume to sponsors?",
-                "\nIf I am selected as a PM, will I be directly assigned to an industry project or will I have to participate in the open house process and submit my resume to sponsors?",
-                "\nWill I be automatically assigned to an industry project if I am chosen as a PM, or will I need to participate in the open house process and submit my resume to sponsors?"
+                " If I get selected as a PM, will I be assigned to an industry project directly or do I have to participate in the open house and submit my resume to the sponsors?",
+                " In the event that I am chosen as a PM, will I be assigned to an industry project or will I have to follow the open house process and submit my resume to sponsors?",
+                " If I am selected as a PM, will I be directly assigned to an industry project or will I have to participate in the open house process and submit my resume to sponsors?",
+                " Will I be automatically assigned to an industry project if I am chosen as a PM, or will I need to participate in the open house process and submit my resume to sponsors?"
             ],
             "responses": [
                 "Project managers are not assigned to industries by us. You will have the option to contact sponsors 24 hours before the open house or joining a team at the Open house itself."
@@ -995,7 +1035,9 @@
                 " Where can I park at the openhouse?",
                 " Is there available parking at the open house?",
                 " Where can I park my vehicle during the open house?",
-                " Are there any parking facilities provided for the open house event?"
+                " Are there any parking facilities provided for the open house event?",
+                " What is the parking situation at the open house?",
+                " Should I bring a car to the open house?"
             ],
             "responses": [
                 "Sponsors will have parking, however we do not reserve parking for students."
@@ -1156,7 +1198,8 @@
                 "What can I expect at the open house?",
                 " What should I anticipate at the open house?",
                 " What activities are involved at the open house?",
-                " What is typically expected of me at the open house?"
+                " What is typically expected of me at the open house?",
+                " What is the itinerary of the open house?"
             ],
             "responses": [
                 "Going up to sponsors and handing out your resume to apply for their company. You should give your resume to 3 companies max. \r\nLunch at 12 noon\r\n\u2022    1 PM: Sponsor Intros\r\n\u2022    3:00 PM Students register their names with sponsors they are interested in working with using F-T-F communication and corresponding sponsors\u2019 Discord channels\r\n\u2022    3-5 PM: The sponsors interview the applicants during the same open house, approve them, and then have an initial meeting to exchange contact information and agree on the first formal meeting."
@@ -1212,10 +1255,12 @@
                 " Could you please tell me the date of the midterm exam?",
                 " When is the midterm scheduled to take place?",
                 " At what time does the midterm exam begin?",
-                " When can I expect the midterm to occur?"
+                " When can I expect the midterm to occur? Do we have a midterm?",
+                "  When is the midterm due? ",
+                " Do we have to do the midterm?"
             ],
             "responses": [
-                "The midterm is on ** LINK **"
+                "The midterm is due on <date>. Every team must complete a midterm which consists of a <#> minute powerpoint presentation. The guidelines can be found here <link>."
             ],
             "context_set": ""
         },
@@ -1380,6 +1425,117 @@
             ],
             "responses": [
                 "Team members grades depend on how your Project Manager grades you in the progress report. If you are a team member and have a concern, then you should discuss with your Project Manager."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Midterm submission for startups with Professor Kumar",
+            "patterns": [
+                "For startups, we presented the live demo of our project to professor Kumar for the midterm, do we have to submit a recording for the midterm?",
+                " Do we have to submit a midterm if we presented to professor Kumar?",
+                " I presented to professor Kumar, do I need to submit the midterm?",
+                " I presented my startup live demo to professor Kumar, do I need to submit my midterm?",
+                " How should I submit my midterm if I presented already to professor Kumar?",
+                " Should I submit a midterm if I presented to Kumar?",
+                ""
+            ],
+            "responses": [
+                "If you are a startup and presented to professor Kumar, you do not need to submit a midterm. However, you do need to submit a recording for the final."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Group photo location",
+            "patterns": [
+                "Where can I find the group pictures that were taken during the open house?",
+                " Where are the pictures with our teams?",
+                " Where are the pictures with the final teams from the openhouse?",
+                " Where can I find group pictures?",
+                " Is there a place where the group photos are?",
+                " Where in the drive is the group photos for the final teams from the open house?",
+                " Where are the team photos taken with our group picture?",
+                " Where are the team photos from the open house?"
+            ],
+            "responses": [
+                "If you are referring to the group photos taken at the open house, the photos are located here <Link> https://drive.google.com/drive/u/0/mobile/folders/1tZRA6p36i0kfyn4FdLDfWvpLue3T8PaE"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Midterm presentation duration",
+            "patterns": [
+                "How long does the midterm presentation have to be?",
+                " What is the max time for our midterm presentations?",
+                " Can we get more than 10 minutes for the midterm presentation?",
+                " How long is the presentation for the midterm?",
+                " Do we have to do 10 minutes for the presentation midterm?"
+            ],
+            "responses": [
+                "For the midterm presentation, only teams with more than 5 people can get 2 extra minutes or as agreed upon with the professor."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Final report exemption ",
+            "patterns": [
+                "Do all teams who participate in the viral video get a waiver for the final report?",
+                " If we submit a viral video, are we exempt from the final report?",
+                "  How can I get exempt form the final report?",
+                " Does submission of the viral video automatically mean we are exempt from the final report?",
+                " I want to do a viral video, will we be exempt?",
+                " How can my team get exempt from the final report using the viral video?",
+                " How can my team get exempt from the final report?",
+                ""
+            ],
+            "responses": [
+                "To be exempt from the final report, your team must submit a viral video. However, this does not mean you are automatically exempt. The video will be examined and if the bottom line and all members contribute, an exemption will be made. Your team will know if they get an exemption."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Do co-pms fill out PM evaluation forms",
+            "patterns": [
+                "I am a co-PM, do I still fill out the PM evaluation form?",
+                " Should I fill out the PM evaluation form?",
+                " Who should fill out the PM evaluation form?",
+                " I'm a co-pm, should I fill the PM evaluation form?",
+                " How should I fill out the PM evaluation form if I am a co-pm?",
+                " Do CO-PMs fill out evaluation forms for the PM?",
+                " Are co-pms responsible for completing the PM evaluation form at the end of the semester?",
+                " Who fills out PM evaluation forms?"
+            ],
+            "responses": [
+                "Everyone who is a non-PM must fill out a PM evaluation form. Co-PMS are considered PMs so they do not fill out the form. If you have a PM and  Co-PM on your team, submit 2 separate ones for each PM."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Extra credit on final report for teams of 3",
+            "patterns": [
+                "If my team has only 3 people, do we get extra credit if we do more chapters in the final report?",
+                " Do we get extra credit for doing more chapters in the final report?",
+                " IIf my team is small, do we get extra credit for completing more chapters?",
+                " Is it okay for a team of 3 to complete the whole final report?",
+                " How can my team get extra credit on the final report?",
+                " My team has three people, if we do more chapters than required can we get extra credit?"
+            ],
+            "responses": [
+                "If you are a team of 3, you will get extra credit if you do more chapters in the final report. This includes Cisco students as well."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Difference between brochure and digital poster board",
+            "patterns": [
+                "What is the difference bteween the brochure and electronic poster board?",
+                " Why is there a brochure and electronic poster board?",
+                " What do we put in the brochure?",
+                " What do we put in the digital poster?",
+                " What do we put in the electronic poster board?",
+                " Is there a difference between the brochure and electronic poster board?"
+            ],
+            "responses": [
+                "The poster is about the process and the product as a visual summary, this will go into your 40 TV as a digital poster. The brochure is a one page or tri fold to market the project and the team to the audience. It can be a physical handout or a QR code."
             ],
             "context_set": ""
         }
