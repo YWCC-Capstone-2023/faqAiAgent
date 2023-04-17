@@ -98,7 +98,7 @@ def add_to_spreadsheet(self,q:str,a:str,t:str='default_tag') -> None:
     worksheet1 = sh[0]
 
     #change this from 'A104' to whatever the first empty cell is
-    worksheet1.append_table([q,a,t], start='A104')
+    worksheet1.append_table([q,a,t], start='A1')
 
 
 

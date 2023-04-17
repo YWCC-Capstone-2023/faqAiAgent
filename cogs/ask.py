@@ -138,11 +138,9 @@ class Ask(commands.Cog):
 
         #check if there already exists some presaved model, speed up the bot login
         #implement method to check for last modified date here
-        if os.path.exists(os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}.h5')):
-            self.agent.load_model(model_name= os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}'))
-        else:
-            self.agent.train_model()
-            self.agent.save_model(model_name= os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}'))
+    
+        self.agent.train_model()
+        self.agent.save_model(model_name= os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}'))
 
 
 

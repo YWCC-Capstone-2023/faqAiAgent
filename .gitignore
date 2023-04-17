@@ -1,4 +1,5 @@
 credentials/
-docs/discord.log
-__pycache__/
 cogs/__pycache__/
+trained_model/faqAiAgent_classes.pkl
+trained_model/faqAiAgent_words.pkl
+trained_model/faqAiAgent.h5
