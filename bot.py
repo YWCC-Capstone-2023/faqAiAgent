@@ -1,8 +1,14 @@
-import json, os
+import json, os, logging
 
 import discord
 from discord.ext import commands
 from oauth2client.service_account import ServiceAccountCredentials
+
+HANDLER = logging.FileHandler(
+    filename='docs/discord.log', 
+    encoding='utf-8', 
+    mode='w'
+)
 
 SCOPE = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
@@ -41,6 +47,7 @@ async def unLoad(ctx:commands.Context, cog:commands.Cog):
 @bot.event
 async def on_ready():
 
+    #load all cogs present in /cogs/
     for filename in os.listdir('./cogs'):
         if filename.endswith('.py'):
             await bot.load_extension(f'cogs.{filename[:-3]}')
@@ -53,4 +60,4 @@ async def on_ready():
     
     print('We have logged in as {0.user}'.format(bot))
 
-bot.run(TOKEN)
+bot.run(TOKEN, log_handler=HANDLER, log_level=logging.DEBUG)

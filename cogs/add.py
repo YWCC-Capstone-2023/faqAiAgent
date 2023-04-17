@@ -36,14 +36,18 @@ class AddModal(discord.ui.Modal, title = "Add a Question and Answer"):
         a = self.answer
         t = self.tag
 
-        addMe(q=q, a=a, t=t)
-        await interaction.response.send_message(f"{interaction.user.mention} Thank You! This set has been added to the sheet!")
-    
+        #add_to_spreadsheet(q=q, a=a, t=t)
+        print(q,a,t)
+        await interaction.response.send_message(f"{interaction.user.mention} Thank You! This set has been added to the sheet!", ephemeral=True)
+
 
 
     async def on_error(self, interaction:discord.Interaction, error:Exception, /) -> None:
         return await super().on_error(interaction, error)
 
+
+    async def on_timeout(self) -> None:
+        ...
 
 class Add(commands.Cog):
     """Cog for /add command on FaqAiBot
@@ -53,29 +57,35 @@ class Add(commands.Cog):
         print("Add Loaded\n")
 
 
-    #@commands.hybrid_command(name="add", description= "Add a question, answer, topic set to the database!",guild_ids=[1072948383955816459])
-    #@commands.bot.tree.command(name='add',description='Add a question, answer, tag set to the database!')
+
     @app_commands.command(name="add",description="Add a question, answer, tag set to the database!")
-    @commands.has_any_role("Professor", "Operations", "Team Member", "Server Admin")
     async def add(self, interaction:discord.Interaction) -> None:
-        await interaction.response.send_modal(AddModal())
+        try:
+            #check for perms
+            if interaction.permissions.administrator:
+                await interaction.response.send_modal(AddModal())
+            else: 
+                raise commands.MissingPermissions([''])
+            
+            #incorrect perms
+        except commands.MissingPermissions:
+            await interaction.response.send_message(f"You do not have permission to do that!", ephemeral=True)
+
 
 
     @add.error
-    async def __add_error(self, ctx:commands.Context, error:Exception) -> None:
-        if isinstance(error, commands.errors.MissingAnyRole):
-            await ctx.reply(f"You do not have permission to do that!", ephemeral=True)
-        else:
-            print(error)
-            await ctx.reply(f"Sorry {ctx.author.mention},I do not understand! Please ping the Professor!", ephemeral=True)
+    async def __add_error(self, interaction:discord.Interaction, error:Exception) -> None:
+        print(error)
+        await interaction.response.send_message(f"Sorry {interaction.user.mention},something went wrong! Please try again...", ephemeral=True)
 
 
 
-def addMe(self,q:str,a:str,t:str='default_tag') -> None:
+def add_to_spreadsheet(self,q:str,a:str,t:str='default_tag') -> None:
     """
     Add the question, answer and tag to the google sheet. (probably prudent to move to mySql server moving forward)
 
     Args:
+    -----------
         q (str): question - will be added to the 'patterns' column.
         a (str): answer - will be added to the 'responses' column.
         t (str, optional): tag - will be added to the 'tag' column. Defaults to 'default_tag', please update either here or in google sheet

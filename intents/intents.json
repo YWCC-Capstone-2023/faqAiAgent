@@ -4,7 +4,31 @@
             "tag": "Kahoot Quiz Location",
             "patterns": [
                 "Where do I find the Kahoot quiz?",
-                " Where is the Kahoot quiz?"
+                " Where is the Kahoot quiz?",
+                "Where can I locate the Kahoot quiz?",
+                "What is the location of the Kahoot quiz?",
+                "How do I find the Kahoot quiz?",
+                "In which place can I access the Kahoot quiz?",
+                "What is the whereabouts of the Kahoot quiz?",
+                "Where should I look for the Kahoot quiz?",
+                "What is the designated spot for the Kahoot quiz?",
+                "How can I discover the Kahoot quiz?",
+                "Where exactly is the Kahoot quiz located?",
+                "What is the specific location of the Kahoot quiz? Where can I locate the Kahoot quiz?",
+                " How can I access the Kahoot quiz?",
+                " In what location can I find the Kahoot quiz?",
+                " Where is the Kahoot quiz located?",
+                " What is the location of the Kahoot quiz?",
+                " Where do I go to find the Kahoot quiz?",
+                " How do I find the Kahoot quiz?",
+                " Where is the link to the Kahoot quiz?",
+                " Where can I find the Kahoot quiz online?",
+                " What is the website for the Kahoot quiz?",
+                " Where can I access the Kahoot quiz from?",
+                " Where can I view the Kahoot quiz?",
+                " How do I find the Kahoot quiz on the internet?",
+                " What is the address for the Kahoot quiz?",
+                " What is the URL for the Kahoot quiz?"
             ],
             "responses": [
                 "You can find the link on Canvas ** Link **"
@@ -18,7 +42,17 @@
                 "At what time do the interviews begin?",
                 " What is the start time for the interviews?",
                 " When is the interview process scheduled to commence?",
-                " When are the interviews set to begin?"
+                " When are the interviews set to begin?",
+                "What is the start time for interviews?",
+                "At what time do the interviews begin?",
+                "When do the interview sessions kick off?",
+                "What time are the interviews scheduled to start?",
+                "When will the interviews commence?",
+                "At what hour do the interviews initiate?",
+                "What is the designated start time for interviews?",
+                "When do the interviews get underway?",
+                "At what time should I expect interviews to begin?",
+                "What time do the interviews kick off?"
             ],
             "responses": [
                 "Interviews start on <date>"
@@ -32,7 +66,21 @@
                 " Do attendees have to stay for the entire 5-hour duration of the open house?",
                 " Is it mandatory to be present for the complete 5-hour period of the open house?",
                 " Must participants remain for the full 5 hours of the open house?",
-                " Is it necessary to attend the open house for the entire 5-hour time frame?"
+                " Is it necessary to attend the open house for the entire 5-hour time frame? Do I have to attend the open house for the entire 5 hours?",
+                " Is it mandatory to stay for the complete 5-hour duration of the open house?",
+                " Can I leave early from the open house, or is it required to stay for the full 5 hours?",
+                " Is it necessary to be present for the full 5-hour duration of the open house?",
+                " Can I leave the open house before 5 hours, or is it a requirement to stay for the entire time?",
+                " Is attending the open house for the entire 5 hours compulsory?",
+                " Is it a must to remain at the open house for the entire duration of 5 hours?",
+                " Is there a requirement to stay for the entire 5 hours of the open house?",
+                " Do I need to be present at the open house for the full 5-hour period?",
+                " Is it mandatory to attend the open house for the entire duration of 5 hours?",
+                " Can I leave the open house early, or is it necessary to stay for the entire 5 hours?",
+                " Do I have to stay at the open house for the entire 5-hour duration?",
+                " Is it required to be present for the complete 5-hour period of the open house?",
+                " Is it compulsory to stay at the open house for the entire 5 hours?",
+                " Must I attend the open house for the full 5-hour time period?"
             ],
             "responses": [
                 "Yes, you are required to attend the open house for the full 5 hours from 1-5pm"
@@ -43,10 +91,21 @@
             "tag": "Where to Meet first day of class",
             "patterns": [
                 "Where are we meeting for the first day of class?",
-                " What is the location for our first day of class meeting?",
-                " Where will our initial class meeting be held?",
-                " At what venue will we gather for the first day of class?",
-                " Could you tell me the meeting place for the first day of our class?"
+                "What is the location for our first class meeting?",
+                " Can you tell me where we're supposed to meet for our first class?",
+                " At which place will our first class session be held?",
+                " Could you inform me of the venue for our initial class gathering?",
+                " Where is the designated meeting spot for our first day of class?",
+                " What's the meeting place for our first day of class?",
+                " I'm curious about the location for our first class meeting. Any idea?",
+                " Where are we supposed to convene for our initial class meeting?",
+                " What's the arranged spot for our first day of class?",
+                " Can you give me details about the location for our first class session?",
+                " Where have we decided to meet for our first class?",
+                " What is the planned location for our initial class meeting?",
+                " Where is the rendezvous point for our first day of class?",
+                " Can you remind me of the location for our first class meeting?",
+                " Where should we assemble for our first class?"
             ],
             "responses": [
                 "Our first class is on <date>. We will be meeting <F2F/Webex> on <zoom link> / <building name, classroom #>"
@@ -68,13 +127,24 @@
             "context_set": ""
         },
         {
-            "tag": "When Date Open House",
+            "tag": "When is the Open House",
             "patterns": [
                 "When is the open house?",
-                " What is the date and time for the open house event?",
-                " When is the scheduled open house session?",
-                " Could you tell me the date and time of the upcoming open house?",
-                " At what time and day is the open house program?"
+                " At what time will the open house occur?",
+                " When does the open house event take place?",
+                " Could you inform me of the date for the open house?",
+                " What is the schedule for the open house?",
+                " When will the open house be held?",
+                " I'm curious about the timing for the open house. Can you tell me?",
+                " What day is the open house scheduled for?",
+                " When is the open house planned to happen?",
+                " Can you provide me with the date for the open house?",
+                " What is the timeline for the open house?",
+                " When can we expect the open house to take place?",
+                " At which time will the open house start?",
+                " What is the designated day for the open house?",
+                " When should we expect the open house to happen?",
+                " When is the open house event going to be held?"
             ],
             "responses": [
                 "The Open House is on <date> at <time> in the <place (atrium/ballroom, etc)>"
@@ -88,7 +158,14 @@
                 " Do I have to attend the entire open house?",
                 " Who doesn't have to attend the open house?",
                 " Do I have to go to the open house as part of the software automation channel?",
-                " Do Software engineering coaches need to attend the open house?"
+                " Do Software engineering coaches need to attend the open house?",
+                " Do I have to attend the open house?",
+                " Who has to attend the open house?",
+                " What teams have to go to the open house?",
+                " Should I go to the open house?",
+                " Do i need to go to the open house?",
+                " Should I attend the open house?",
+                " How serious is it to go to the open house?"
             ],
             "responses": [
                 "All industry, start-up applicants, and enterprise teams must attend the open house unless you were granted approval by the professor. RWC, Cisco, and Software Automation students are not required. However software automation must have a representative to be there."
@@ -102,7 +179,21 @@
                 " What topics or activities will be covered in the initial face-to-face (FTF) class?",
                 " Could you give me an overview of the content for the first FTF session?",
                 " What is the curriculum for the first in-person class?",
-                " What can we expect to learn during the initial FTF class?"
+                " What can we expect to learn during the initial FTF class? What topics will be covered in the first FTF class?",
+                " Can you give me an overview of the first FTF class?",
+                " What can we expect to learn in the initial FTF class?",
+                " Could you tell me about the content of the first FTF class?",
+                " What is included in the first FTF class curriculum?",
+                " What is the agenda for the first FTF class?",
+                " I'm curious about what will be covered in the first FTF class. Any idea?",
+                " What subjects will be discussed in the first FTF class?",
+                " What are the main themes for the first FTF class?",
+                " What will be the focus of the first FTF class?",
+                " Could you provide me with a breakdown of the first FTF class?",
+                " What will the first FTF class be comprised of?",
+                " Can you give me a preview of what the first FTF class will involve?",
+                " What will the first FTF class entail?",
+                " What are the learning objectives for the first FTF class?"
             ],
             "responses": [
                 "There will be an in-class training for the FTF class. Everbody must attend and attendance will be taken"
@@ -116,7 +207,21 @@
                 " Is attendance at the open house mandatory for those selecting a Cisco project?",
                 " If I choose a Cisco project, am I required to be present at the open house?",
                 " Could you clarify if attending the open house is necessary for those picking a Cisco project?",
-                " Do I need to go to the open house if I opt for a Cisco project?"
+                " Do I need to go to the open house if I opt for a Cisco project? Is it necessary to attend the open house if I select a Cisco project?",
+                " Will attendance at the open house be required for those who choose a Cisco project?",
+                " If I opt for a Cisco project, must I attend the open house?",
+                " Is attending the open house a prerequisite for selecting a Cisco project?",
+                " If I select a Cisco project, do I have to participate in the open house?",
+                " Is open house attendance mandatory for those who choose a Cisco project?",
+                " If I go with a Cisco project, will I be required to attend the open house?",
+                " Must I attend the open house if I decide to work on a Cisco project?",
+                " If I choose a Cisco project, will I need to be present at the open house?",
+                " Is it compulsory to attend the open house if I pick a Cisco project?",
+                " Will selecting a Cisco project require me to attend the open house?",
+                " Is attendance at the open house necessary for those who want to work on a Cisco project?",
+                " Do I have to attend the open house if I choose a project related to Cisco?",
+                " If I decide to work on a Cisco project, will I be expected to attend the open house?",
+                " Will opting for a Cisco project mean that I have to attend the open house?"
             ],
             "responses": [
                 "If you were approved for cisco, you do NOT have to attend the open house"
@@ -130,7 +235,21 @@
                 " What is the anticipated date for administering the Cisco qualifier exam?",
                 " When is the scheduled date for the Cisco qualifier exam?",
                 " Could you inform me about the expected timeline for taking the Cisco qualifier exam?",
-                " At what time and day will the Cisco qualifier exam be conducted?"
+                " At what time and day will the Cisco qualifier exam be conducted? At what time can we anticipate taking the Cisco qualifier exam?",
+                " When is the probable date for the Cisco qualifier exam?",
+                " What is the estimated date for the Cisco qualifier exam?",
+                " When can we expect to sit for the Cisco qualifier exam?",
+                " What is the timeline for the Cisco qualifier exam?",
+                " When will the Cisco qualifier exam likely take place?",
+                " What is the expected schedule for the Cisco qualifier exam?",
+                " When is the anticipated timeframe for the Cisco qualifier exam?",
+                " What is the projected date for the Cisco qualifier exam?",
+                " When should we expect to take the Cisco qualifier exam?",
+                " What is the approximate date for the Cisco qualifier exam?",
+                " When is the probable time for the Cisco qualifier exam?",
+                " What is the tentative schedule for the Cisco qualifier exam?",
+                " When will the Cisco qualifier exam be conducted?",
+                " When can we anticipate the Cisco qualifier exam being held?"
             ],
             "responses": [
                 "The Cisco qualifier exam will be available on <date> at <time> on Kahoot."
@@ -144,7 +263,21 @@
                 " How can I view the score percentage for my Kahoot quiz?",
                 " Is there a place where I can check the percentage score of my Kahoot quiz?",
                 " Where can I find the percentage result of my Kahoot quiz?",
-                " Could you tell me where to look to see the percentage grade of my Kahoot quiz?"
+                " Could you tell me where to look to see the percentage grade of my Kahoot quiz? How can I view the percentage for my Kahoot quiz?",
+                " Where can I check the percentage for my Kahoot quiz?",
+                " Is there a way to see the percentage of my Kahoot quiz?",
+                " Can I find the percentage of my Kahoot quiz somewhere?",
+                " What is the location to view the percentage of my Kahoot quiz?",
+                " How do I access the percentage of my Kahoot quiz?",
+                " In what way can I see the percentage of my Kahoot quiz?",
+                " Where should I look to find the percentage of my Kahoot quiz?",
+                " Is it possible to see the percentage of my Kahoot quiz and if so, where?",
+                " What is the method to check the percentage of my Kahoot quiz?",
+                " How can I find out the percentage of my Kahoot quiz score?",
+                " Where do I need to go to see the percentage of my Kahoot quiz?",
+                " Can I view the percentage of my Kahoot quiz, and if yes, where?",
+                " What is the process to view the percentage of my Kahoot quiz?",
+                " Where exactly can I locate the percentage of my Kahoot quiz?"
             ],
             "responses": [
                 "Only the profesor can see it"
@@ -152,13 +285,27 @@
             "context_set": ""
         },
         {
-            "tag": "number RWC coaches per topic",
+            "tag": "Number of RWC coaches per topic",
             "patterns": [
                 "How many RWC coaches are allowed per topic?",
                 " What is the maximum number of RWC coaches permitted per topic?",
                 " Is there a limit to the number of RWC coaches that can assist with a single topic?",
                 " Could you inform me about the maximum number of RWC coaches allowed per subject?",
-                " How many RWC coaches are permitted to help with a single topic?"
+                " How many RWC coaches are permitted to help with a single topic? What is the maximum number of RWC coaches allowed per topic?",
+                " Is there a limit to the number of RWC coaches per topic?",
+                " How many RWC coaches can work on one topic?",
+                " What is the policy for the number of RWC coaches per topic?",
+                " Can more than one RWC coach work on the same topic?",
+                " What is the guideline for the number of RWC coaches per topic?",
+                " Is there a cap on the number of RWC coaches per topic?",
+                " How many RWC coaches are permitted to work on a single topic?",
+                " Are there any restrictions on the number of RWC coaches per topic?",
+                " What is the maximum number of RWC coaches that can assist with a topic?",
+                " What is the allocated number of RWC coaches per topic?",
+                " How many RWC coaches can collaborate on one topic?",
+                " Is there a specified number of RWC coaches per topic?",
+                " What is the rule for the number of RWC coaches per topic?",
+                " How many RWC coaches are allowed to assist with each topic?"
             ],
             "responses": [
                 "There are 2 RWC coaches max allowed per topic"
@@ -172,7 +319,21 @@
                 " Is the work of RWC coaches collaborative or individual?",
                 " Could you tell me if RWC coaches collaborate or work independently?",
                 " Do RWC coaches operate as a team or as individuals?",
-                " Are RWC coaches expected to work together or work separately?"
+                " Are RWC coaches expected to work together or work separately? Is there collaboration among RWC coaches or do they work individually?",
+                " How do RWC coaches operate, collectively or independently?",
+                " Do RWC coaches work in isolation or in a team?",
+                " Are RWC coaches expected to work together or alone?",
+                " Is it a collaborative effort for RWC coaches or a solo task?",
+                " Do RWC coaches function independently or in conjunction with others?",
+                " Are RWC coaches required to collaborate, or can they work separately?",
+                " Is teamwork among RWC coaches necessary or optional?",
+                " How do RWC coaches approach their work, as a group or individually?",
+                " Is there a preference for RWC coaches to work together or independently?",
+                " Do RWC coaches have to work as a team, or can they work on their own?",
+                " Is the work of RWC coaches conducted collaboratively or individually?",
+                " Do RWC coaches work together in pairs or groups, or do they work separately?",
+                " Is there a requirement for RWC coaches to work in tandem or can they work alone?",
+                " Do RWC coaches have to cooperate with each other, or can they work independently?"
             ],
             "responses": [
                 "There will be 2 coaches per track/course. Both coaches will work together to teach the track/course."
@@ -187,7 +348,21 @@
                 " Could you confirm if the RWC international pathway is still offered?",
                 " Is the RWC program still providing an international path for students?",
                 " Has the RWC international path been discontinued",
-                " or is it still available?"
+                " or is it still available? Is the international path for RWC still accessible?",
+                " Can students still pursue the RWC international track?",
+                " Is the RWC global path still an option?",
+                " Is the RWC international program still offered?",
+                " Are students still able to enroll in the RWC international pathway?",
+                " Has the RWC international option been discontinued?",
+                " Is the international track for RWC still open for registration?",
+                " Can students still choose to take the RWC international route?",
+                " Is the RWC international curriculum still available?",
+                " Is the RWC international program still in operation?",
+                " Is the RWC international track still being offered this semester?",
+                " Is the RWC international pathway still an alternative?",
+                " Is the international option for RWC still on the table?",
+                " Is the RWC international program still being offered this year?",
+                " Are students still eligible to participate in the RWC international path?"
             ],
             "responses": [
                 "RWC International is a design option in the Spring and an execution option in the summer. In the Spring, we will build on eight years of success stories and create a website for future coaches, leaders, students, parents, industry, and community. If you travel in June, you can also do the program in Colombia.  Otherwise, these will be two separate capstone projects.  Clearly, the summer semester will include the traveling component.\nAnd again, it will be done in August"
@@ -383,7 +558,12 @@
         {
             "tag": "Kahoot error message",
             "patterns": [
-                "I am trying to take the kahoot but I get an error message \"Uh-oh this game has alrady reached the max number of players. Ask the host to increase the limit\""
+                "I am trying to take the kahoot but I get an error message \"Uh-oh this game has alrady reached the max number of players. Ask the host to increase the limit\", what should I do?",
+                " The kahoot game has an error in it, what should I do?",
+                " How do I do the kahoot? I'm getting an error message.",
+                " When I try to do the kahoot I get \"Uhoh this game has already reached the max number of players\" what should I do?",
+                " I get an error message \"Uh-oh this game has already reached the max number of players. Ask the hose to increase the limit\", how do I take the kahoot test?",
+                " Getting error message on kahoot max number of players reached, how can I take the exam?"
             ],
             "responses": [
                 "Contact the professor on discord about this issue"
@@ -398,7 +578,11 @@
                 " What is the recommended solution if our Kahoot name exceeds the character limit?",
                 " Can you provide guidance on what to do if our Kahoot name is too long to fit in the allotted space?",
                 " In the event that our Kahoot name is too long",
-                " what is the appropriate course of action?"
+                " what is the appropriate course of action?",
+                " My name is too long for the kahoot, how should I proceed?",
+                " How can I put my full name on kahoot?",
+                " What do we do if our name is too long for kahoot?",
+                " Name is too long for kahoot, what should I do?"
             ],
             "responses": [
                 "Try to fit as much as your First and Last name as possible"
@@ -650,10 +834,10 @@
             "tag": "Project manager sponsor choosing",
             "patterns": [
                 "If I am chosen as a PM, will you assign me to an industry project or will they go through the process of the open house and submit their resumes to sponsors?",
-                "\nIf I get selected as a PM, will I be assigned to an industry project directly or do I have to participate in the open house and submit my resume to the sponsors?",
-                "\nIn the event that I am chosen as a PM, will I be assigned to an industry project or will I have to follow the open house process and submit my resume to sponsors?",
-                "\nIf I am selected as a PM, will I be directly assigned to an industry project or will I have to participate in the open house process and submit my resume to sponsors?",
-                "\nWill I be automatically assigned to an industry project if I am chosen as a PM, or will I need to participate in the open house process and submit my resume to sponsors?"
+                " If I get selected as a PM, will I be assigned to an industry project directly or do I have to participate in the open house and submit my resume to the sponsors?",
+                " In the event that I am chosen as a PM, will I be assigned to an industry project or will I have to follow the open house process and submit my resume to sponsors?",
+                " If I am selected as a PM, will I be directly assigned to an industry project or will I have to participate in the open house process and submit my resume to sponsors?",
+                " Will I be automatically assigned to an industry project if I am chosen as a PM, or will I need to participate in the open house process and submit my resume to sponsors?"
             ],
             "responses": [
                 "Project managers are not assigned to industries by us. You will have the option to contact sponsors 24 hours before the open house or joining a team at the Open house itself."
@@ -995,7 +1179,9 @@
                 " Where can I park at the openhouse?",
                 " Is there available parking at the open house?",
                 " Where can I park my vehicle during the open house?",
-                " Are there any parking facilities provided for the open house event?"
+                " Are there any parking facilities provided for the open house event?",
+                " What is the parking situation at the open house?",
+                " Should I bring a car to the open house?"
             ],
             "responses": [
                 "Sponsors will have parking, however we do not reserve parking for students."
@@ -1156,7 +1342,8 @@
                 "What can I expect at the open house?",
                 " What should I anticipate at the open house?",
                 " What activities are involved at the open house?",
-                " What is typically expected of me at the open house?"
+                " What is typically expected of me at the open house?",
+                " What is the itinerary of the open house?"
             ],
             "responses": [
                 "Going up to sponsors and handing out your resume to apply for their company. You should give your resume to 3 companies max. \r\nLunch at 12 noon\r\n\u2022    1 PM: Sponsor Intros\r\n\u2022    3:00 PM Students register their names with sponsors they are interested in working with using F-T-F communication and corresponding sponsors\u2019 Discord channels\r\n\u2022    3-5 PM: The sponsors interview the applicants during the same open house, approve them, and then have an initial meeting to exchange contact information and agree on the first formal meeting."
@@ -1212,10 +1399,12 @@
                 " Could you please tell me the date of the midterm exam?",
                 " When is the midterm scheduled to take place?",
                 " At what time does the midterm exam begin?",
-                " When can I expect the midterm to occur?"
+                " When can I expect the midterm to occur? Do we have a midterm?",
+                "  When is the midterm due? ",
+                " Do we have to do the midterm?"
             ],
             "responses": [
-                "The midterm is on ** LINK **"
+                "The midterm is due on <date>. Every team must complete a midterm which consists of a <#> minute powerpoint presentation. The guidelines can be found here <link>."
             ],
             "context_set": ""
         },
@@ -1380,6 +1569,117 @@
             ],
             "responses": [
                 "Team members grades depend on how your Project Manager grades you in the progress report. If you are a team member and have a concern, then you should discuss with your Project Manager."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Midterm submission for startups with Professor Kumar",
+            "patterns": [
+                "For startups, we presented the live demo of our project to professor Kumar for the midterm, do we have to submit a recording for the midterm?",
+                " Do we have to submit a midterm if we presented to professor Kumar?",
+                " I presented to professor Kumar, do I need to submit the midterm?",
+                " I presented my startup live demo to professor Kumar, do I need to submit my midterm?",
+                " How should I submit my midterm if I presented already to professor Kumar?",
+                " Should I submit a midterm if I presented to Kumar?",
+                ""
+            ],
+            "responses": [
+                "If you are a startup and presented to professor Kumar, you do not need to submit a midterm. However, you do need to submit a recording for the final."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Group photo location",
+            "patterns": [
+                "Where can I find the group pictures that were taken during the open house?",
+                " Where are the pictures with our teams?",
+                " Where are the pictures with the final teams from the openhouse?",
+                " Where can I find group pictures?",
+                " Is there a place where the group photos are?",
+                " Where in the drive is the group photos for the final teams from the open house?",
+                " Where are the team photos taken with our group picture?",
+                " Where are the team photos from the open house?"
+            ],
+            "responses": [
+                "If you are referring to the group photos taken at the open house, the photos are located here <Link> https://drive.google.com/drive/u/0/mobile/folders/1tZRA6p36i0kfyn4FdLDfWvpLue3T8PaE"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Midterm presentation duration",
+            "patterns": [
+                "How long does the midterm presentation have to be?",
+                " What is the max time for our midterm presentations?",
+                " Can we get more than 10 minutes for the midterm presentation?",
+                " How long is the presentation for the midterm?",
+                " Do we have to do 10 minutes for the presentation midterm?"
+            ],
+            "responses": [
+                "For the midterm presentation, only teams with more than 5 people can get 2 extra minutes or as agreed upon with the professor."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Final report exemption ",
+            "patterns": [
+                "Do all teams who participate in the viral video get a waiver for the final report?",
+                " If we submit a viral video, are we exempt from the final report?",
+                "  How can I get exempt form the final report?",
+                " Does submission of the viral video automatically mean we are exempt from the final report?",
+                " I want to do a viral video, will we be exempt?",
+                " How can my team get exempt from the final report using the viral video?",
+                " How can my team get exempt from the final report?",
+                ""
+            ],
+            "responses": [
+                "To be exempt from the final report, your team must submit a viral video. However, this does not mean you are automatically exempt. The video will be examined and if the bottom line and all members contribute, an exemption will be made. Your team will know if they get an exemption."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Do co-pms fill out PM evaluation forms",
+            "patterns": [
+                "I am a co-PM, do I still fill out the PM evaluation form?",
+                " Should I fill out the PM evaluation form?",
+                " Who should fill out the PM evaluation form?",
+                " I'm a co-pm, should I fill the PM evaluation form?",
+                " How should I fill out the PM evaluation form if I am a co-pm?",
+                " Do CO-PMs fill out evaluation forms for the PM?",
+                " Are co-pms responsible for completing the PM evaluation form at the end of the semester?",
+                " Who fills out PM evaluation forms?"
+            ],
+            "responses": [
+                "Everyone who is a non-PM must fill out a PM evaluation form. Co-PMS are considered PMs so they do not fill out the form. If you have a PM and  Co-PM on your team, submit 2 separate ones for each PM."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Extra credit on final report for teams of 3",
+            "patterns": [
+                "If my team has only 3 people, do we get extra credit if we do more chapters in the final report?",
+                " Do we get extra credit for doing more chapters in the final report?",
+                " IIf my team is small, do we get extra credit for completing more chapters?",
+                " Is it okay for a team of 3 to complete the whole final report?",
+                " How can my team get extra credit on the final report?",
+                " My team has three people, if we do more chapters than required can we get extra credit?"
+            ],
+            "responses": [
+                "If you are a team of 3, you will get extra credit if you do more chapters in the final report. This includes Cisco students as well."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "Difference between brochure and digital poster board",
+            "patterns": [
+                "What is the difference bteween the brochure and electronic poster board?",
+                " Why is there a brochure and electronic poster board?",
+                " What do we put in the brochure?",
+                " What do we put in the digital poster?",
+                " What do we put in the electronic poster board?",
+                " Is there a difference between the brochure and electronic poster board?"
+            ],
+            "responses": [
+                "The poster is about the process and the product as a visual summary, this will go into your 40 TV as a digital poster. The brochure is a one page or tri fold to market the project and the team to the audience. It can be a physical handout or a QR code."
             ],
             "context_set": ""
         }

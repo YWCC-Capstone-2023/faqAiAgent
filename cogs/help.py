@@ -52,11 +52,11 @@ class Help(commands.Cog):
 
 
 
-    @commands.hybrid_command(name="help", descripition = "Show a list of commands!", guild_ids = [1072948383955816459])
+    @commands.hybrid_command(name="help", description="Show a list of commands!", guild_ids = [1072948383955816459])
     async def help(self, ctx:commands.Context) -> None:
         embed = discord.Embed(
-            title="Help Command",
-            description="List of Commands!"
+            title="Help",
+            description="Need Help? Here's a List of Commands!"
         )
         view = View(timeout=60).add_item(HelpSelect(self.bot))
         await ctx.send(embed=embed, view = view, ephemeral=True)

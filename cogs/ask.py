@@ -56,6 +56,7 @@ class Ask(commands.Cog):
         strings delimited by a semi-colon.
         
         Args:
+        -----------
             df (pandas.DataFrame): The DataFrame containing the column to be converted.
             col_name (str): The name of the column to be converted.
             new_col_name (str): The new name of the column to be converted. Defaults to original name
@@ -76,6 +77,7 @@ class Ask(commands.Cog):
         Writes to a file a DataFrame as a json object
 
         Args:
+        -----------
             df (pandas.DataFrame) : The dataframe to be written to the file
             new_filename (str) : The name of the file, Default = intents.json
         """
@@ -113,6 +115,7 @@ class Ask(commands.Cog):
             Will generate new intents file from specified spreadsheet url
 
             Args:
+            -----------
                 url (str): url containing the spreadsheet to load
                 new_filename (srt): name of intents file, Default = intents.json
         """
