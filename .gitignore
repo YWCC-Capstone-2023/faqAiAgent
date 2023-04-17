@@ -1,3 +1,4 @@
+docs/discord.log
 credentials/
 cogs/__pycache__/
 trained_model/faqAiAgent_classes.pkl
