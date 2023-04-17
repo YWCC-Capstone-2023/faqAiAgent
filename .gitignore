@@ -1,2 +1,4 @@
 credentials/
 docs/discord.log
+__pycache__/
+cogs/__pycache__/
