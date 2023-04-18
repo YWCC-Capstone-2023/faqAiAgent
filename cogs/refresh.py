@@ -66,7 +66,7 @@ class Reload(commands.Cog):
         print("Reload Loaded\n")
 
     @discord.app_commands.command(name='reload', description="Reload the bot's cogs!")
-    async def reload(self, interaction:discord.Interaction):
+    async def refresh(self, interaction:discord.Interaction):
         try:
             if interaction.permissions.administrator:
                 embed = discord.Embed(
@@ -88,8 +88,8 @@ class Reload(commands.Cog):
 
             await interaction.response.send_message(embed=embed, ephemeral=True)
 
-    @reload.error
-    async def __reload_error(self, ctx:commands.Context, error:Exception) -> None:
+    @refresh.error
+    async def __refresh_error(self, ctx:commands.Context, error:Exception) -> None:
         logging.log(error)
 
         embed = discord.Embed(

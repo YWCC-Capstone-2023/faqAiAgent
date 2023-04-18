@@ -47,7 +47,7 @@ async def unLoad(ctx:commands.Context, cog:commands.Cog):
 @bot.event
 async def on_ready():
 
-    #load all cogs present in /cogs/
+    #load all commands present in /cogs/
     for filename in os.listdir('./cogs'):
         if filename.endswith('.py'):
             await bot.load_extension(f'cogs.{filename[:-3]}')
@@ -55,9 +55,10 @@ async def on_ready():
     try:
         synced = await bot.tree.sync()
         print(f"Synced {len(synced)} command(s)")
+
     except Exception as e:
         print(e)
-    
+
     print('We have logged in as {0.user}'.format(bot))
 
 bot.run(TOKEN, log_handler=HANDLER, log_level=logging.WARNING)

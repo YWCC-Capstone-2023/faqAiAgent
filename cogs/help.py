@@ -11,7 +11,7 @@ class HelpSelect(Select):
             options=[
                 discord.SelectOption(
                     label=cog_name,description=cog.__doc__
-                )for cog_name, cog in bot.cogs.items() if cog.__cog_commands__ and cog_name not in ['Jishaku'] #?? was ist dis??
+                )for cog_name, cog in bot.cogs.items()
             ]
         )
 
