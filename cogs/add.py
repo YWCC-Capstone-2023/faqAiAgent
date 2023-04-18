@@ -1,7 +1,7 @@
+import logging
 import os
 
 from discord.ext import commands
-from discord import app_commands
 import discord
 
 import pygsheets
@@ -58,25 +58,36 @@ class Add(commands.Cog):
 
 
 
-    @app_commands.command(name="add",description="Add a question, answer, tag set to the database!")
+    @discord.app_commands.command(name="add",description="Add a question, answer, tag set to the database!")
     async def add(self, interaction:discord.Interaction) -> None:
         try:
             #check for perms
             if interaction.permissions.administrator:
                 await interaction.response.send_modal(AddModal())
             else: 
-                raise commands.MissingPermissions([''])
+                raise commands.errors.MissingPermissions
             
-            #incorrect perms
-        except commands.MissingPermissions:
+        #incorrect perms
+        except commands.errors.MissingPermissions:
+
+            embed = discord.Embed(
+                title = "You are missing the correct permission(s) to run this command!",
+                description=""
+            )
             await interaction.response.send_message(f"You do not have permission to do that!", ephemeral=True)
 
 
 
     @add.error
-    async def __add_error(self, interaction:discord.Interaction, error:Exception) -> None:
-        print(error)
-        await interaction.response.send_message(f"Sorry {interaction.user.mention},something went wrong! Please try again...", ephemeral=True)
+    async def __add_error(self, ctx:commands.Context, error:Exception) -> None:
+        logging.log(error)
+        
+        embed = discord.Embed(
+            title = '',
+            description=f"Sorry {ctx.author.mention},something went wrong! Please try again..."
+        )
+        
+        await ctx.reply(embed, ephemeral=True)
 
 
 

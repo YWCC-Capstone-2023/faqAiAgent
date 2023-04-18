@@ -1,11 +1,11 @@
+import os, logging, asyncio
+
 from discord.ext import commands
-from discord.ui import View, Select
-import os
 import discord
-import asyncio
+
 #from ask import __train_agent, __path_creator
 
-class ReloadSelect(Select):
+class ReloadSelect(discord.ui.Select):
     def __init__(self, bot:commands.Bot):
         super().__init__(
             placeholder="Choose a command",
@@ -65,16 +65,39 @@ class Reload(commands.Cog):
         self.bot = bot
         print("Reload Loaded\n")
 
-    @commands.hybrid_command(name='reload', description="Reload the bot's cogs!", guild_ids=[1072948383955816459])
-    async def reload(self, ctx: discord.Interaction):
+    @discord.app_commands.command(name='reload', description="Reload the bot's cogs!")
+    async def reload(self, interaction:discord.Interaction):
+        try:
+            if interaction.permissions.administrator:
+                embed = discord.Embed(
+                    title = "Reload",
+                    description="Select Which Command To Reload"
+                )
+
+                view = discord.ui.View().add_item(ReloadSelect(self.bot))
+
+                await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+            else: 
+                raise commands.errors.MissingPermissions
+            
+        except commands.errors.MissingPermissions as e:
+            embed = discord.Embed(
+                title = "You are missing the correct permission(s) to run this command!",
+                description=""
+            )
+
+            await interaction.response.send_message(embed=embed, ephemeral=True)
+
+    @reload.error
+    async def __reload_error(self, ctx:commands.Context, error:Exception) -> None:
+        logging.log(error)
+
         embed = discord.Embed(
-            title = "Reload",
-            description="Select Which Command To Reload"
+            title='',
+            description=f"Sorry {ctx.author.mention},something went wrong! Please try again..."
         )
-
-        view = View().add_item(ReloadSelect(self.bot))
-
-        await ctx.send(embed=embed, view=view, ephemeral=True)
-
+        
+        await ctx.reply(embed=embed, ephemeral = True)
+    
 async def setup(bot:commands.Bot) -> None:
     await bot.add_cog(Reload(bot))

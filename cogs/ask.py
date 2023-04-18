@@ -1,3 +1,4 @@
+import logging
 import os, json, pandas as pd
 from platform import system
 
@@ -32,21 +33,31 @@ class Ask(commands.Cog):
 
 
 
-    @commands.hybrid_command(name='ask', description="Ask the bot a question!", guild_ids=[1072948383955816459])
+    @discord.app_commands.command(name='ask', description="Ask the bot a question!")
     async def ask(self, interaction: discord.Interaction, question:str) -> None:
         """Ask the Bot a question
         """
         response = self.agent.request(question)
-        await interaction.reply(f"Hi, {interaction.author.mention}! {response}", ephemeral=True)
+        
+        embed = discord.Embed(
+            title = f'{question}',
+            description=f'{response}'
+        )
+
+        await interaction.response.send_message(embed=embed, ephemeral=True)
 
 
 
     @ask.error
-    async def ask_error(self, ctx:commands.Context, error:Exception) -> None:
-        if isinstance(error, commands.errors.MissingRole):
-            await ctx.reply(f"You do not have permission to do that!", ephemeral=True)
-        else:
-            await ctx.reply(f"Sorry {ctx.author.mention},I do not understand! Please ping the Professor!", ephemeral=True)
+    async def __ask_error(self, ctx:commands.Context, error:Exception) -> None:
+        logging.log(error)
+        
+        embed = discord.Embed(
+            title = "",
+            description=f"Sorry {ctx.author.mention},I do not understand! Please ping the Professor!"
+        )
+
+        await ctx.reply(embed=embed, ephemeral=True)
     
 
 
@@ -138,9 +149,12 @@ class Ask(commands.Cog):
 
         #check if there already exists some presaved model, speed up the bot login
         #implement method to check for last modified date here
-    
-        self.agent.train_model()
-        self.agent.save_model(model_name= os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}'))
+        if os.path.exists(os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}.h5')):
+            self.agent.load_model(model_name=os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}'))
+
+        else:
+            self.agent.train_model()
+            self.agent.save_model(model_name= os.path.join(self.PATH_TO_MODEL, f'{self.agent.model_name}'))
 
 
 

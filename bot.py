@@ -60,4 +60,4 @@ async def on_ready():
     
     print('We have logged in as {0.user}'.format(bot))
 
-bot.run(TOKEN, log_handler=HANDLER, log_level=logging.DEBUG)
+bot.run(TOKEN, log_handler=HANDLER, log_level=logging.WARNING)
