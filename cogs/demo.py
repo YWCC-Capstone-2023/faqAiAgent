@@ -5,33 +5,28 @@ from discord.ext import commands
 import discord
 from neuralintents import GenericAssistant
 
-agent = None
+PATH_TO_INTENTS = os.getcwd() + "\\intents\\" if system() == 'Windows' else os.getcwd() + "/intents/"
+PATH_TO_MODEL = os.getcwd() + "\\trained_model\\" if system() == 'Windows' else os.getcwd() + "/trained_model/"
 
-def path_creator(self) -> None:
-        """
-        Change paths based on which system cog is running on
-        """
-        userSystem = system()
 
-        self.PATH_TO_INTENTS = os.getcwd() + "\\intents\\" if userSystem == 'Windows' else os.getcwd() + "/intents/"
-        self.PATH_TO_MODEL = os.getcwd() + "\\trained_model\\" if userSystem == 'Windows' else os.getcwd() + "/trained_model/"
-
-def train_agent(self) -> None:
+def train_agent() -> GenericAssistant:
     """
     Train AI agent
 
     """
     
-    agent = GenericAssistant(os.path.join(os.getcwd(), self.PATH_TO_INTENTS, 'intents.json'), model_name='faqAiAgent')
+    agent = GenericAssistant(os.path.join(os.getcwd(), PATH_TO_INTENTS, 'intents.json'), model_name='faqAiAgent')
 
     #check if there already exists some presaved model, speed up the bot login
     #implement method to check for last modified date here
-    if os.path.exists(os.path.join(self.PATH_TO_MODEL, f'{agent.model_name}.h5')):
-        agent.load_model(model_name=os.path.join(self.PATH_TO_MODEL, f'{agent.model_name}'))
+    if os.path.exists(os.path.join(PATH_TO_MODEL, f'{agent.model_name}.h5')):
+        agent.load_model(model_name=os.path.join(PATH_TO_MODEL, f'{agent.model_name}'))
 
     else:
         agent.train_model()
-        agent.save_model(model_name= os.path.join(self.PATH_TO_MODEL, f'{agent.model_name}'))
+        agent.save_model(model_name= os.path.join(PATH_TO_MODEL, f'{agent.model_name}'))
+    
+    return agent
 
 class DemoSelect(discord.ui.Select):
     def __init__(self, bot:commands.Bot):
@@ -50,6 +45,8 @@ class DemoSelect(discord.ui.Select):
     async def callback(self, interaction: discord.Interaction) -> None:
         q = self.values[0]
 
+        agent = train_agent()
+
         response = agent.request(q)
 
         embed = discord.Embed(
@@ -67,9 +64,6 @@ class Demo(commands.Cog):
     def __init__(self, bot) -> None:
         self.bot = bot
         print("Demo Loaded\n")
-        
-        path_creator(self)
-        train_agent(self)
         
 
 
