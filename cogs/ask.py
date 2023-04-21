@@ -1,9 +1,9 @@
 import logging
 import os, json, pandas as pd
 from platform import system
-
-from discord.ext import commands
 import discord
+from discord.ext import commands
+
 
 from neuralintents import GenericAssistant
 
@@ -40,8 +40,9 @@ class Ask(commands.Cog):
         response = self.agent.request(question)
         
         embed = discord.Embed(
-            title = f'{question}',
-            description=f'{response}'
+            title = f'{question.capitalize()}',
+            description=f'{response}',
+            color = discord.Color.green()
         )
 
         await interaction.response.send_message(embed=embed, ephemeral=True)

@@ -36,8 +36,8 @@ class AddModal(discord.ui.Modal, title = "Add a Question and Answer"):
         a = self.answer
         t = self.tag
 
-        #add_to_spreadsheet(q=q, a=a, t=t)
-        print(q,a,t)
+        add_to_spreadsheet(q=q, a=a, t=t)
+        
         await interaction.response.send_message(f"{interaction.user.mention} Thank You! This set has been added to the sheet!", ephemeral=True)
 
 
