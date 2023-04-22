@@ -50,7 +50,8 @@ class DemoSelect(discord.ui.Select):
 
         embed = discord.Embed(
             title = f'{q}',
-            description=f'{response}'
+            description=f'{response}',
+            color = discord.Color.yellow()
         )
 
         await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -73,7 +74,8 @@ class Demo(commands.Cog):
         
         embed = discord.Embed(
             title = "Demo Ask",
-            description="Select Which Question to Ask"
+            description="Select Which Question to Ask",
+            color = discord.Color.green()
         )
         
         view = discord.ui.View().add_item(DemoSelect(self.bot))
@@ -86,7 +88,8 @@ class Demo(commands.Cog):
         print(error)
         embed = discord.Embed(
             title = "",
-            description=f"Sorry {interaction.user.mention},I do not understand! Please ping the Professor!"
+            description=f"Sorry {interaction.user.mention},I do not understand! Please ping the Professor!",
+            color = discord.Color.red()
         )
 
         await interaction.response.send_message(embed=embed, ephemeral=True)

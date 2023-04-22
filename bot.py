@@ -49,7 +49,7 @@ async def on_ready():
 
     #load all commands present in /cogs/
     for filename in os.listdir('./cogs'):
-        if filename.endswith('.py'):
+        if filename.endswith('.py') and filename not in ['update.py']: #update still in dev, do not load
             await bot.load_extension(f'cogs.{filename[:-3]}')
 
     try:

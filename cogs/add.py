@@ -92,10 +92,10 @@ class Add(commands.Cog):
         except commands.errors.MissingPermissions:
 
             embed = discord.Embed(
-                title = "You are missing the correct permission(s) to run this command!",
-                description=""
+                title = "You do not have permission to do that!",
+                color=discord.Color.red()
             )
-            await interaction.response.send_message(f"You do not have permission to do that!", ephemeral=True)
+            await interaction.response.send_message(embed=embed, ephemeral=True)
 
 
 

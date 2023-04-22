@@ -26,7 +26,8 @@ class ReloadSelect(discord.ui.Select):
         embed = discord.Embed(
             title = f"Reloading {name}...",
             color= 0x808080,
-            timestamp=interaction.message.created_at
+            timestamp=interaction.message.created_at,
+            colour=discord.Color.yellow()
         )
 
         for file in os.listdir("./cogs/"):
@@ -42,17 +43,20 @@ class ReloadSelect(discord.ui.Select):
                     
                     embed.add_field(
                         name = f"Reloaded: `{file}`",
-                        value = '\uFEFE'
+                        value = '\uFEFE',
+                        color=discord.Color.green()
                     )
                     
                 except Exception as e:
                     print(f"Exception: {e}")
                     embed.add_field(
                         name = f"Failed: `{file}`",
-                        value = e
+                        value = e,
+                        color=discord.Color.red()
                     )
                 await asyncio.sleep(1)
             continue
+
         await interaction.followup.send(f"The /{name} function is back up and running!")
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
@@ -71,7 +75,8 @@ class Reload(commands.Cog):
             if interaction.permissions.administrator:
                 embed = discord.Embed(
                     title = "Reload",
-                    description="Select Which Command To Reload"
+                    description="Select Which Command To Reload",
+                    color=discord.Color.yellow()
                 )
 
                 view = discord.ui.View().add_item(ReloadSelect(self.bot))
@@ -83,7 +88,8 @@ class Reload(commands.Cog):
         except commands.errors.MissingPermissions as e:
             embed = discord.Embed(
                 title = "You are missing the correct permission(s) to run this command!",
-                description=""
+                description="",
+                color=discord.Color.red()
             )
 
             await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -94,7 +100,8 @@ class Reload(commands.Cog):
 
         embed = discord.Embed(
             title='',
-            description=f"Sorry {ctx.author.mention},something went wrong! Please try again..."
+            description=f"Sorry {ctx.author.mention},something went wrong! Please try again...",
+            color=discord.Color.red()
         )
         
         await ctx.reply(embed=embed, ephemeral = True)

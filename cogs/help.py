@@ -56,7 +56,8 @@ class Help(commands.Cog):
     async def help(self, ctx:commands.Context) -> None:
         embed = discord.Embed(
             title="Help",
-            description="Need Help? Here's a List of Commands!"
+            description="Need Help? Here's a List of Commands!",
+            color=discord.Color.yellow()
         )
         view = View(timeout=60).add_item(HelpSelect(self.bot))
         await ctx.send(embed=embed, view = view, ephemeral=True)

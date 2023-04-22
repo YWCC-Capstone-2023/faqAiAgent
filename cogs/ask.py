@@ -55,7 +55,8 @@ class Ask(commands.Cog):
         
         embed = discord.Embed(
             title = "",
-            description=f"Sorry {ctx.author.mention},I do not understand! Please ping the Professor!"
+            description=f"Sorry {ctx.author.mention},I do not understand! Please ping the Professor!",
+            color=discord.Color.red()
         )
 
         await ctx.reply(embed=embed, ephemeral=True)

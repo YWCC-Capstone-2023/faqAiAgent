@@ -1682,6 +1682,26 @@
                 "The poster is about the process and the product as a visual summary, this will go into your 40 TV as a digital poster. The brochure is a one page or tri fold to market the project and the team to the audience. It can be a physical handout or a QR code."
             ],
             "context_set": ""
+        },
+        {
+            "tag": "default_tag",
+            "patterns": [
+                "test"
+            ],
+            "responses": [
+                "test"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "default_tag",
+            "patterns": [
+                "Test"
+            ],
+            "responses": [
+                "Test"
+            ],
+            "context_set": ""
         }
     ]
 }
