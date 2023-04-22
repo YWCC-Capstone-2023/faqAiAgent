@@ -1,15 +1,22 @@
-import os, json, pandas as pd
+import os, json, logging, pandas as pd
+
 import discord
 from discord.ext import commands
 
-SPREADSHEET = "https://docs.google.com/spreadsheets/d/1m51HUH0AQi28EBnsLwP9gasUHPuLVzFuNu1L4N6Zs-Y/gviz/tq?tqx=out:csv&sheet=Question+and+Answers_new"
+import pygsheets
 
-def __get_spreadsheet_as_df() -> pd.DataFrame:
-    df = pd.read_csv(SPREADSHEET)
-    return df
+# setup access to spreadsheet
+path_to_creds = os.path.join(os.getcwd(), 'credentials', 'service_account_credentials.json')
 
+if os.path.exists(path_to_creds):
+    gc = pygsheets.authorize(service_file=path_to_creds)
+
+else: logging.log(msg='Failed to Load Service Account Credentials for spreasheet')
+
+sh = gc.open('Question and Answers_new').sheet1
 
 class UpdateModal(discord.ui.Modal, title = "Update a Question and Answer"):
+    """currently in development"""
     question = discord.ui.TextInput(
         label = 'Question', 
         required=True, 
@@ -19,9 +26,13 @@ class UpdateModal(discord.ui.Modal, title = "Update a Question and Answer"):
 
     async def on_submit(self, interaction: discord.Interaction, /) -> None:
         q = self.question
-        df = __get_spreadsheet_as_df()
+
+        df = sh.get_as_df()
+
+        target = df[df['patterns'].str.contains(q).index]
 
         mask = df['patterns'].str.contains(q)
+
         if mask.any():
             first_index = mask.idxmax()
         else:
@@ -35,6 +46,8 @@ class UpdateModal(discord.ui.Modal, title = "Update a Question and Answer"):
         tag = row['tag']
 
         print(f"Grabbed: {question}, {answer}, {tag}")
+
+        print(f'Target Row {target}')
 
 
 class Update(commands.Cog):
@@ -55,6 +68,10 @@ class Update(commands.Cog):
         #modal pop up
             #in the modal, ask question to update and depending tag, what you wanna update
             #the tag to 
+    
+    @update.error
+    async def __update_error(self, interaction:discord.Interaction, error) -> None:
+        print(error)
 
 async def setup(bot:commands.Bot) -> None:
     await bot.add_cog(Update(bot))
