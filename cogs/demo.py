@@ -12,7 +12,6 @@ PATH_TO_MODEL = os.getcwd() + "\\trained_model\\" if system() == 'Windows' else 
 def train_agent() -> GenericAssistant:
     """
     Train AI agent
-
     """
     
     agent = GenericAssistant(os.path.join(os.getcwd(), PATH_TO_INTENTS, 'intents.json'), model_name='faqAiAgent')
