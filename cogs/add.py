@@ -1,10 +1,19 @@
-import logging
-import os
+import logging , os, pandas as pd
 
 from discord.ext import commands
 import discord
 
 import pygsheets
+
+# setup access to spreadsheet
+path_to_creds = os.path.join(os.getcwd(), 'credentials', 'service_account_credentials.json')
+
+if os.path.exists(path_to_creds):
+    gc = pygsheets.authorize(service_file=path_to_creds)
+
+else: logging.log(msg='Failed to Load Service Account Credentials for spreasheet')
+
+sh = gc.open('Question and Answers_new').sheet1
 
 class AddModal(discord.ui.Modal, title = "Add a Question and Answer"):
     question = discord.ui.TextInput(
@@ -32,22 +41,34 @@ class AddModal(discord.ui.Modal, title = "Add a Question and Answer"):
     """on_submit -> return all of the modal text inputs
     """
     async def on_submit(self, interaction: discord.Interaction, /) -> None:
+        
         q = self.question
         a = self.answer
         t = self.tag
 
         add_to_spreadsheet(q=q, a=a, t=t)
-        
-        await interaction.response.send_message(f"{interaction.user.mention} Thank You! This set has been added to the sheet!", ephemeral=True)
+            
+        embed = discord.Embed(
+            title = f'Added!',
+            description = f"{interaction.user.mention} Thank You! This set has been added to the sheet!",
+            color=discord.Color.green()
+        )
 
+        await interaction.response.send_message(embed=embed, ephemeral=True)
 
 
     async def on_error(self, interaction:discord.Interaction, error:Exception, /) -> None:
-        return await super().on_error(interaction, error)
+        print(error)
+        
+        embed = discord.Embed(
+            title="Error", 
+            description=f'{error}',
+            color=discord.Color.red()
+        )
 
+        await interaction.response.send_message(embed=embed, ephemeral=True)
 
-    async def on_timeout(self) -> None:
-        ...
+    async def on_timeout(self) -> None: ...
 
 class Add(commands.Cog):
     """Cog for /add command on FaqAiBot
@@ -84,14 +105,15 @@ class Add(commands.Cog):
         
         embed = discord.Embed(
             title = '',
-            description=f"Sorry {ctx.author.mention},something went wrong! Please try again..."
+            description=f"Sorry {ctx.author.mention},something went wrong! Please try again...",
+            color=discord.Color.red()
         )
         
-        await ctx.reply(embed, ephemeral=True)
+        await ctx.reply(embed=embed, ephemeral=True)
 
 
 
-def add_to_spreadsheet(self,q:str,a:str,t:str='default_tag') -> None:
+def add_to_spreadsheet(q:str,a:str,t:str='default_tag') -> None:
     """
     Add the question, answer and tag to the google sheet. (probably prudent to move to mySql server moving forward)
 
@@ -101,15 +123,18 @@ def add_to_spreadsheet(self,q:str,a:str,t:str='default_tag') -> None:
         a (str): answer - will be added to the 'responses' column.
         t (str, optional): tag - will be added to the 'tag' column. Defaults to 'default_tag', please update either here or in google sheet
     """
-    if os.path.exists('/credentials/service_account_credentials.json'):
-        self.gc = pygsheets.authorize(service_file='/credentials/service_account_credentials.json')
-    else: pass
 
-    sh = self.gc.open('Question and Answers_new')
-    worksheet1 = sh[0]
+    df = sh.get_as_df()
 
-    #change this from 'A104' to whatever the first empty cell is
-    worksheet1.append_table([q,a,t], start='A1')
+    new_data = pd.DataFrame({
+        'patterns' : [q],
+        'responses': [a],
+        'tag' : [t]
+    })
+
+    df = df.append(new_data, ignore_index = True)
+
+    sh.set_dataframe(df, start = 'A1')
 
 
 
