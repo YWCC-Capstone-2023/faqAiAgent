@@ -50,16 +50,15 @@ class Ask(commands.Cog):
 
 
     @ask.error
-    async def __ask_error(self, ctx:commands.Context, error:Exception) -> None:
-        logging.log(error)
+    async def __ask_error(self, interaction:discord.Interaction, error:Exception) -> None:
         
         embed = discord.Embed(
             title = "",
-            description=f"Sorry {ctx.author.mention},I do not understand! Please ping the Professor!",
+            description=f"Sorry, I do not understand! Please ping the Professor!",
             color=discord.Color.red()
         )
 
-        await ctx.reply(embed=embed, ephemeral=True)
+        await interaction.response.send_message(embed=embed, ephemeral=True)
     
 
 

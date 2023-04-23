@@ -1260,7 +1260,7 @@
                 " What day is the final?"
             ],
             "responses": [
-                "The showcase/final is on ** DATE **. You will present your projects then."
+                "The showcase is today silly!"
             ],
             "context_set": ""
         },
@@ -1447,12 +1447,12 @@
                 " Is there a check-in process for the Capstone Open University, or can we walk in without any prior registration?"
             ],
             "responses": [
-                "The software engineering coaches will record attendance, students do not have to worry"
+                "The software engineering coaches will record attendance."
             ],
             "context_set": ""
         },
         {
-            "tag": "Open house workshop attendance",
+            "tag": "Is the Open house workshop mandatory",
             "patterns": [
                 "Are the capstone open house workshops mandatory?",
                 " Do we have to attend the open house workshops?",
@@ -1684,22 +1684,12 @@
             "context_set": ""
         },
         {
-            "tag": "default_tag",
+            "tag": "food choices",
             "patterns": [
-                "test"
+                "what am i eating right now?"
             ],
             "responses": [
-                "test"
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "default_tag",
-            "patterns": [
-                "Test"
-            ],
-            "responses": [
-                "Test"
+                "Bbq Chips!"
             ],
             "context_set": ""
         }

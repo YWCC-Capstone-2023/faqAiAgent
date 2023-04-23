@@ -86,7 +86,7 @@ class Add(commands.Cog):
             if interaction.permissions.administrator:
                 await interaction.response.send_modal(AddModal())
             else: 
-                raise commands.errors.MissingPermissions
+                raise commands.errors.MissingPermissions(missing_permissions= ['administrator'])
             
         #incorrect perms
         except commands.errors.MissingPermissions:
