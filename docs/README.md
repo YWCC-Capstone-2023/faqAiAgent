@@ -19,7 +19,7 @@ The Bot utilizes simple commands in order to ask it questions within the Discord
 -  Install the required libraries using `pip` or `conda` located in `docs/requirements.txt` in your working directory:
 
 	```python
-	pip install docs/requirements.txt
+	pip install -r docs/requirements.txt
 	```
 
 -  Replace the `SPREADSHEET` variable in the cogs/ask file with the URL of your Google Sheets spreadsheet containing question and answer data.
